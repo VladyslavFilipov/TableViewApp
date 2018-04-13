@@ -12,30 +12,18 @@ class TableViewController: UITableViewController {
     
     let model = ModelData()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.separatorColor = UIColor.black
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.count()
+        tableView.separatorColor = UIColor.black
+        return model.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> TableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FirstTypeCell", for: indexPath) as! TableViewCell
-        let dataStruct = model.get(at: indexPath.row)
-        cell.firstTypeCellLabel?.text = dataStruct
-        
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FirstTypeCell", for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
+        cell.setCustomTableViewCellLabelText(model.get(at: indexPath.row))
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-       self.tableView(self.tableView, didDeselectRowAt: indexPath)
-    }
-    
-    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        
         tableView.deselectRow(at: indexPath, animated: false)
     }
     

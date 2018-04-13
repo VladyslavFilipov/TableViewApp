@@ -9,8 +9,8 @@
 import Foundation
 
 protocol ModelProtocol {
-    var dataStructArray: Array<String> { get }
-    func count() -> Int
+    var count: Int { get }
+    
     func add(value: String)
     func get(at index: Int) -> String
 }

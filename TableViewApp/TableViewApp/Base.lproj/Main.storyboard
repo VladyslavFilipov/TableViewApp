@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FirstTypeCell" rowHeight="101" id="ItM-mM-nrc" customClass="TableViewCell" customModule="TableViewApp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FirstTypeCell" rowHeight="101" id="ItM-mM-nrc" customClass="CustomTableViewCell" customModule="TableViewApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="101"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ItM-mM-nrc" id="FRW-Yf-Q8n">
@@ -52,7 +52,7 @@
                             <outlet property="delegate" destination="XJj-Ra-Bx3" id="ofQ-Yq-jQG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="1wT-0p-GkQ"/>
+                    <navigationItem key="navigationItem" title="Data structures" id="1wT-0p-GkQ"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zpC-bH-sY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -67,15 +67,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="em0-zU-Tg4">
-                                <rect key="frame" x="29" y="86" width="317" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="em0-zU-Tg4">
+                                <rect key="frame" x="15" y="84" width="345" height="563"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="k1P-rb-fHz" firstAttribute="bottom" secondItem="em0-zU-Tg4" secondAttribute="bottom" constant="20" id="8fr-0H-CbN"/>
+                            <constraint firstItem="k1P-rb-fHz" firstAttribute="trailing" secondItem="em0-zU-Tg4" secondAttribute="trailing" constant="15" id="EKZ-nQ-GuS"/>
+                            <constraint firstItem="em0-zU-Tg4" firstAttribute="top" secondItem="k1P-rb-fHz" secondAttribute="top" constant="20" id="UaI-VU-jTu"/>
+                            <constraint firstItem="em0-zU-Tg4" firstAttribute="leading" secondItem="k1P-rb-fHz" secondAttribute="leading" constant="15" id="cYd-Ca-qnr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="k1P-rb-fHz"/>
                     </view>
                     <navigationItem key="navigationItem" id="IXA-5H-J2I"/>
@@ -85,7 +90,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tab-Vc-7Jc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1190" y="54"/>
+            <point key="canvasLocation" x="1198" y="54"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VGM-xN-wPB">

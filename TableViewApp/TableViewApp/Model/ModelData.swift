@@ -10,17 +10,19 @@ import Foundation
 
 class ModelData: ModelProtocol {
 
-    var dataStructArray: Array<String> = ["Stack", "Queue", "Set", "Dequeue", "Priority Queue", "List(Array)", "MultiSet", "Dictionary"]
+    var dataStructArray = ["Stack", "Queue", "Set", "Dequeue", "Priority Queue", "List(Array)", "MultiSet", "Dictionary"]
     
-    func count () -> Int {
-        return dataStructArray.count
-    }
+    var count: Int { get { return dataStructArray.count } }
     
     func add (value: String) {
         dataStructArray.append(value)
     }
     
     func get (at index: Int) -> String {
-        return dataStructArray[index]
+        if index >= dataStructArray.count {
+            return "array with dataStructures have ended"
+        } else {
+            return dataStructArray[index]
+        }
     }
 }
