@@ -9,9 +9,7 @@
 import UIKit
 
 class CustomTableViewCell: UITableViewCell {
+    
     @IBOutlet weak var firstTypeCellLabel: UILabel!
     
-    func setCustomTableViewCellLabelText(_ text: String) {
-        firstTypeCellLabel.text = text
-    }
 }

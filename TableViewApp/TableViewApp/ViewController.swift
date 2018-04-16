@@ -11,10 +11,13 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var cellTextViewLabel: UILabel!
+    @IBOutlet weak var LabelTaxtScrollView: UIScrollView!
+    @IBOutlet weak var ViewControllerNavigationBar: UINavigationItem!
     
     var cellText = String()
     
     override func viewWillAppear(_ animated: Bool) {
-        cellTextViewLabel.text = cellText
+        ViewControllerNavigationBar.title = cellText
+        LabelTaxtScrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: cellTextViewLabel.bottomAnchor).isActive = true
     }
 }

@@ -11,6 +11,7 @@ import UIKit
 class TableViewController: UITableViewController {
     
     let model = ModelData()
+    let cellModel = CellModel()
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableView.separatorColor = UIColor.black
@@ -19,7 +20,8 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FirstTypeCell", for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
-        cell.setCustomTableViewCellLabelText(model.get(at: indexPath.row))
+        cellModel.configure(model.get(at: indexPath.row), cell.firstTypeCellLabel)
+        
         return cell
     }
     
