@@ -11,6 +11,6 @@ import Foundation
 protocol ModelProtocol {
     var count: Int { get }
     
-    func add(value: String)
-    func get(at index: Int) -> String
+    func add(value: DataStructureModel)
+    func get(at index: Int) -> DataStructureModel
 }

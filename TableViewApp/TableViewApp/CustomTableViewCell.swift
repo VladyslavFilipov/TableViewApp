@@ -11,5 +11,5 @@ import UIKit
 class CustomTableViewCell: UITableViewCell {
     
     @IBOutlet weak var firstTypeCellLabel: UILabel!
-    
+
 }

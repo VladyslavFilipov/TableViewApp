@@ -43,7 +43,6 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="firstTypeCellLabel" destination="fby-4f-Sqo" id="cui-4b-yRP"/>
-                                    <segue destination="RpR-Ex-RXm" kind="show" identifier="fromCellToViewController" id="hy3-Kf-x0p"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -54,58 +53,74 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Structures" id="1wT-0p-GkQ"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <segue destination="RpR-Ex-RXm" kind="show" identifier="someSegue" id="r4H-Mo-X7A"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zpC-bH-sY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="400.80000000000001" y="53.523238380809602"/>
         </scene>
-        <!--View Controller-->
+        <!--Description View Controller-->
         <scene sceneID="wE8-fa-Ch5">
             <objects>
-                <viewController id="RpR-Ex-RXm" customClass="ViewController" customModule="TableViewApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DescriptionController" id="RpR-Ex-RXm" customClass="DescriptionViewController" customModule="TableViewApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ijS-dn-TF2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1l-Bu-VRw">
-                                <rect key="frame" x="1" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXK-Ep-NgA">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="807.5"/>
-                                        <mutableString key="text">Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</mutableString>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fev-Vb-PV8">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="21.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXK-Ep-NgA">
+                                                <rect key="frame" x="8" y="0.0" width="359" height="21.5"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="rXK-Ep-NgA" secondAttribute="trailing" constant="8" id="FGa-Ky-wec"/>
+                                            <constraint firstItem="rXK-Ep-NgA" firstAttribute="height" secondItem="Fev-Vb-PV8" secondAttribute="height" id="SRF-NE-C4h"/>
+                                            <constraint firstItem="rXK-Ep-NgA" firstAttribute="top" secondItem="Fev-Vb-PV8" secondAttribute="top" id="TCk-I5-qxN"/>
+                                            <constraint firstItem="rXK-Ep-NgA" firstAttribute="leading" secondItem="Fev-Vb-PV8" secondAttribute="leading" constant="8" id="xfn-3r-NWb"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="rXK-Ep-NgA" firstAttribute="leading" secondItem="f1l-Bu-VRw" secondAttribute="leading" id="CMo-Nx-Od5"/>
-                                    <constraint firstAttribute="bottom" secondItem="rXK-Ep-NgA" secondAttribute="bottom" id="FM0-gg-h0r"/>
-                                    <constraint firstItem="rXK-Ep-NgA" firstAttribute="width" secondItem="f1l-Bu-VRw" secondAttribute="width" id="NV8-jR-M7E"/>
-                                    <constraint firstAttribute="trailing" secondItem="rXK-Ep-NgA" secondAttribute="trailing" id="gsQ-Gn-oLn"/>
-                                    <constraint firstItem="rXK-Ep-NgA" firstAttribute="top" secondItem="f1l-Bu-VRw" secondAttribute="top" id="xJU-4c-JwX"/>
+                                    <constraint firstItem="Fev-Vb-PV8" firstAttribute="leading" secondItem="f1l-Bu-VRw" secondAttribute="leading" id="Hi0-kR-hdj"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fev-Vb-PV8" secondAttribute="trailing" id="NVS-s2-Vo0"/>
+                                    <constraint firstItem="Fev-Vb-PV8" firstAttribute="top" secondItem="f1l-Bu-VRw" secondAttribute="top" id="aAs-ec-Qjt"/>
+                                    <constraint firstAttribute="bottom" secondItem="Fev-Vb-PV8" secondAttribute="bottom" id="cup-3b-2IY"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="k1P-rb-fHz" firstAttribute="bottom" secondItem="f1l-Bu-VRw" secondAttribute="bottom" id="3XE-sk-MRP"/>
-                            <constraint firstItem="f1l-Bu-VRw" firstAttribute="top" secondItem="k1P-rb-fHz" secondAttribute="top" id="Dg1-BK-7BG"/>
-                            <constraint firstItem="f1l-Bu-VRw" firstAttribute="width" secondItem="ijS-dn-TF2" secondAttribute="width" id="OCz-H3-YHa"/>
-                            <constraint firstItem="f1l-Bu-VRw" firstAttribute="leading" secondItem="k1P-rb-fHz" secondAttribute="leading" constant="1" id="Pp8-WS-j9A"/>
+                            <constraint firstItem="f1l-Bu-VRw" firstAttribute="top" secondItem="k1P-rb-fHz" secondAttribute="top" id="7J3-tt-I9x"/>
+                            <constraint firstItem="f1l-Bu-VRw" firstAttribute="trailing" secondItem="k1P-rb-fHz" secondAttribute="trailing" id="AUU-hJ-XEy"/>
+                            <constraint firstItem="f1l-Bu-VRw" firstAttribute="bottom" secondItem="k1P-rb-fHz" secondAttribute="bottom" id="D0S-46-axL"/>
+                            <constraint firstItem="f1l-Bu-VRw" firstAttribute="leading" secondItem="k1P-rb-fHz" secondAttribute="leading" id="VXh-0m-afA"/>
+                            <constraint firstItem="Fev-Vb-PV8" firstAttribute="width" secondItem="ijS-dn-TF2" secondAttribute="width" id="cSQ-nl-xWj"/>
+                            <constraint firstItem="Fev-Vb-PV8" firstAttribute="height" secondItem="ijS-dn-TF2" secondAttribute="height" priority="250" id="i2V-UQ-1uc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="k1P-rb-fHz"/>
                     </view>
                     <navigationItem key="navigationItem" id="IXA-5H-J2I"/>
                     <connections>
-                        <outlet property="LabelTaxtScrollView" destination="f1l-Bu-VRw" id="1fT-su-xf4"/>
-                        <outlet property="ViewControllerNavigationBar" destination="IXA-5H-J2I" id="AMT-Ne-qQq"/>
-                        <outlet property="cellTextViewLabel" destination="rXK-Ep-NgA" id="HLU-GO-IEr"/>
+                        <outlet property="descriptionViewControllerLabel" destination="rXK-Ep-NgA" id="HLU-GO-IEr"/>
+                        <outlet property="descriptionViewControllerNavigationBar" destination="IXA-5H-J2I" id="AMT-Ne-qQq"/>
+                        <outlet property="descriptionViewControllerScrollView" destination="f1l-Bu-VRw" id="1fT-su-xf4"/>
+                        <outlet property="descriptionViewControllerScrollViewUIView" destination="Fev-Vb-PV8" id="Uuh-j5-FyK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tab-Vc-7Jc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1197.5999999999999" y="53.523238380809602"/>
+            <point key="canvasLocation" x="1197.5" y="53.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VGM-xN-wPB">

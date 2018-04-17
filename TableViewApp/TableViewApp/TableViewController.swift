@@ -11,7 +11,6 @@ import UIKit
 class TableViewController: UITableViewController {
     
     let model = ModelData()
-    let cellModel = CellModel()
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableView.separatorColor = UIColor.black
@@ -20,20 +19,20 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FirstTypeCell", for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
-        cellModel.configure(model.get(at: indexPath.row), cell.firstTypeCellLabel)
+        let dataStructure = model.get(at: indexPath.row)
+        cell.firstTypeCellLabel.text = dataStructure.getTitle()
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "fromCellToViewController" {
-            let destination = segue.destination as! ViewController
-            guard let cellIndex = tableView.indexPathForSelectedRow?.row else { return }
-            destination.cellText = model.get(at: cellIndex)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let descrStoryboard = storyboard.instantiateViewController(withIdentifier: "DescriptionController") as? DescriptionViewController
+            else {
+                print("Error instantiate DescriptionController")
+                return
         }
+        descrStoryboard.cellEntity = model.get(at: indexPath.row)
+        self.navigationController?.pushViewController(descrStoryboard, animated: true)
     }
 }

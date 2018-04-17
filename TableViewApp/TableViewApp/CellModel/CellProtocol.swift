@@ -10,5 +10,6 @@ import Foundation
 import UIKit
 
 protocol CellProtocol {
-    func configure(_ text: String, _ label: UILabel)
+    func getTitle() -> String
+    func getDescr() -> String
 }
