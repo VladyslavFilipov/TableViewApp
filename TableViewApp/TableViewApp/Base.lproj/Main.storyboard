@@ -73,10 +73,10 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fev-Vb-PV8">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="21.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="41.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXK-Ep-NgA">
-                                                <rect key="frame" x="8" y="0.0" width="359" height="21.5"/>
+                                                <rect key="frame" x="15" y="10" width="345" height="21.5"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -84,10 +84,10 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="rXK-Ep-NgA" secondAttribute="trailing" constant="8" id="FGa-Ky-wec"/>
-                                            <constraint firstItem="rXK-Ep-NgA" firstAttribute="height" secondItem="Fev-Vb-PV8" secondAttribute="height" id="SRF-NE-C4h"/>
-                                            <constraint firstItem="rXK-Ep-NgA" firstAttribute="top" secondItem="Fev-Vb-PV8" secondAttribute="top" id="TCk-I5-qxN"/>
-                                            <constraint firstItem="rXK-Ep-NgA" firstAttribute="leading" secondItem="Fev-Vb-PV8" secondAttribute="leading" constant="8" id="xfn-3r-NWb"/>
+                                            <constraint firstItem="rXK-Ep-NgA" firstAttribute="top" secondItem="Fev-Vb-PV8" secondAttribute="top" constant="10" id="5UU-La-Ylv"/>
+                                            <constraint firstAttribute="trailing" secondItem="rXK-Ep-NgA" secondAttribute="trailing" constant="15" id="d4V-1o-yyX"/>
+                                            <constraint firstAttribute="bottom" secondItem="rXK-Ep-NgA" secondAttribute="bottom" constant="10" id="pvW-fE-Q0j"/>
+                                            <constraint firstItem="rXK-Ep-NgA" firstAttribute="leading" secondItem="Fev-Vb-PV8" secondAttribute="leading" constant="15" id="x43-oO-uBH"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -114,8 +114,6 @@
                     <connections>
                         <outlet property="descriptionViewControllerLabel" destination="rXK-Ep-NgA" id="HLU-GO-IEr"/>
                         <outlet property="descriptionViewControllerNavigationBar" destination="IXA-5H-J2I" id="AMT-Ne-qQq"/>
-                        <outlet property="descriptionViewControllerScrollView" destination="f1l-Bu-VRw" id="1fT-su-xf4"/>
-                        <outlet property="descriptionViewControllerScrollViewUIView" destination="Fev-Vb-PV8" id="Uuh-j5-FyK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tab-Vc-7Jc" userLabel="First Responder" sceneMemberID="firstResponder"/>
