@@ -17,7 +17,6 @@ class DescriptionViewController: UIViewController {
     @IBOutlet weak var wikiLinkButton: UIButton!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var descriptionScrollView: UIScrollView!
-    @IBOutlet weak var buttonHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var buttomConstraint: NSLayoutConstraint!
     
     var cellEntity = DataStructureModel(title: "", deskr: "", link: "")
@@ -27,7 +26,7 @@ class DescriptionViewController: UIViewController {
     var copyDescriptionViewBottomConstraintConstant: CGFloat!
     var isMoreButtonPressed = false
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidLoad() {
         buttomAnhcoreOfMoreLess = moreLessButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20)
         buttomAnhcoreOfWiki = wikiLinkButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 70)
         wikiBottomConstraint = wikiLinkButton.bottomAnchor.constraint(equalTo: descriptionScrollView.bottomAnchor, constant: -20)
@@ -35,8 +34,6 @@ class DescriptionViewController: UIViewController {
         descriptionNavigationBar.title = cellEntity.getTitle()
         descriptionLabel.text = cellEntity.getDescr()
         fadingView.opacityGradient()
-        fadingView.layoutIfNeeded()
-        fadingView.updateConstraints()
     }
    
     @IBAction func wikiLinkButtonPressed(_ sender: Any) {
@@ -66,20 +63,18 @@ class DescriptionViewController: UIViewController {
         
         switch identifierController {
         case "WebViewViewController":
-            guard let webViewController = storyboard.instantiateViewController(withIdentifier: identifierController) as? WebViewViewController else { return }
-            webViewController.url = URL(string: cellEntity.link)
-            webViewController.navigationTitle = cellEntity.title
+            guard let webViewController = storyboard.instantiateViewController(withIdentifier: identifierController) as? WebViewController else { return }
+            webViewController.entity = cellEntity
             self.present(webViewController, animated: true, completion: nil)
         case "WKViewViewController":
-            guard let wkViewViewController = storyboard.instantiateViewController(withIdentifier: identifierController) as? WKViewViewController else { return }
-            wkViewViewController.url = URL(string: cellEntity.link)
-            self.present(wkViewViewController, animated: true, completion: nil)
+            guard let wkViewController = storyboard.instantiateViewController(withIdentifier: identifierController) as? WKViewController else { return }
+            wkViewController.entity = cellEntity
+            self.present(wkViewController, animated: true, completion: nil)
         case "SFSafariViewController":
-            guard let sfSafariViewController = storyboard.instantiateViewController(withIdentifier: identifierController) as? SFSafariViewController else { return }
-            sfSafariViewController.url = URL(string: cellEntity.link)
-            self.present(sfSafariViewController, animated: true, completion: nil)
+            guard let safariViewController = storyboard.instantiateViewController(withIdentifier: identifierController) as? SafariViewController else { return }
+            safariViewController.entity = cellEntity
+            self.present(safariViewController, animated: true, completion: nil)
         default:
-            print("fuck")
             return
         }
     }
@@ -92,22 +87,21 @@ class DescriptionViewController: UIViewController {
         
         if !isMoreButtonPressed {
             UIView.transition(with: descriptionScrollView, duration: 0.5, options: .transitionFlipFromBottom, animations: {
-                self.moreLessButton.setTitle(lessTitle)
-                self.heightConstraint.priority = small
-                self.buttonHeightConstraint.priority = small
-                self.inversion(true)
-                self.buttomConstraint.constant = 10
+                self.changeScrollViewState(lessTitle, small, 10, true)
             }, completion: nil)
         }
         else {
             UIView.transition(with: descriptionScrollView, duration: 0.5, options: .transitionFlipFromTop, animations: {
-                self.moreLessButton.setTitle(moreTitle)
-                self.heightConstraint.priority = high
-                self.buttonHeightConstraint.priority = high
-                self.buttomConstraint.constant = self.copyDescriptionViewBottomConstraintConstant
-                self.inversion(false)
+                self.changeScrollViewState(moreTitle, high, self.copyDescriptionViewBottomConstraintConstant, false)
             }, completion: nil)
         }
+    }
+    
+    private func changeScrollViewState(_ title: String, _ priority: UILayoutPriority, _ constraintConstant: CGFloat, _ isTaped: Bool) {
+        self.moreLessButton.setTitle(title)
+        self.heightConstraint.priority = priority
+        self.buttomConstraint.constant = constraintConstant
+        self.inversion(isTaped)
     }
     
     private func inversion(_ isActive: Bool) {

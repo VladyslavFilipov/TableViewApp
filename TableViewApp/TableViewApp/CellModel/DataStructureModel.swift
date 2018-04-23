@@ -11,9 +11,9 @@ import UIKit
 
 struct DataStructureModel: CellProtocol  {
     
-    var title: String
-    var descr: String
-    var link: String
+    private var title: String
+    private var descr: String
+    private var link: String
     
     init(title: String, deskr: String, link: String) {
         self.title = title
@@ -27,5 +27,10 @@ struct DataStructureModel: CellProtocol  {
     
     func getDescr() -> String {
         return self.descr
+    }
+    
+    func getLink() -> URL {
+        guard let url = URL(string: self.link) else { return URL(string: "http://4pda.ru")! }
+        return url
     }
 }
