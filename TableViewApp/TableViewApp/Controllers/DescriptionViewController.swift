@@ -39,16 +39,10 @@ class DescriptionViewController: UIViewController {
     @IBAction func wikiLinkButtonPressed(_ sender: Any) {
         let alertController = UIAlertController(title: "Choose browser", message: "What browser will open the link?", preferredStyle: .actionSheet)
         
-        let UIWebView = UIAlertAction(title: "UIWebView", style: .default, handler: {
-            _ in self.presentController(identifierController: "WebViewViewController")
-        })
-        let WkWebKit = UIAlertAction(title: "WkWebKit", style: .default, handler: {
-            _ in self.presentController(identifierController: "WKViewViewController")
-        })
-        let SFSafary = UIAlertAction(title: "SFSafary", style: .default, handler: {
-            _ in self.presentController(identifierController: "SFSafariViewController")
-        })
-        let close = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        let UIWebView = presentController(named: "UIWebView", withId: "WebViewViewController")
+        let WkWebKit = presentController(named: "WkWebKit", withId: "WKViewViewController")
+        let SFSafary = presentController(named: "SFSafary", withId: "SFSafariViewController")
+        let close = presentController(named: "Cancel")
         
         alertController.addAction(UIWebView)
         alertController.addAction(WkWebKit)
@@ -58,25 +52,24 @@ class DescriptionViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    private func presentController(identifierController: String) {
+    func presentController(named title: String, withId idController: String? = nil) -> UIAlertAction {
+        guard let idController = idController else {
+            return UIAlertAction(title: title, style: .cancel)
+        }
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        switch identifierController {
-        case "WebViewViewController":
-            guard let webViewController = storyboard.instantiateViewController(withIdentifier: identifierController) as? WebViewController else { return }
-            webViewController.entity = cellEntity
-            self.present(webViewController, animated: true, completion: nil)
-        case "WKViewViewController":
-            guard let wkViewController = storyboard.instantiateViewController(withIdentifier: identifierController) as? WKViewController else { return }
-            wkViewController.entity = cellEntity
-            self.present(wkViewController, animated: true, completion: nil)
-        case "SFSafariViewController":
-            guard let safariViewController = storyboard.instantiateViewController(withIdentifier: identifierController) as? SafariViewController else { return }
-            safariViewController.entity = cellEntity
-            self.present(safariViewController, animated: true, completion: nil)
-        default:
-            return
-        }
+        let alertAction = UIAlertAction(title: title, style: .default, handler: {
+            _ in
+            guard var controller = storyboard.instantiateViewController(withIdentifier: idController) as? BrowserProtocol else { return }
+            controller.linkOnWiki = self.cellEntity.getLink()
+            
+            guard let viewController = controller as? UIViewController else {
+                return
+            }
+            self.present(viewController, animated: true, completion: nil)
+        })
+        return alertAction
     }
     
     @IBAction func descriptionViewControllerMoreLessButtonTouched(_ sender: UIButton) {

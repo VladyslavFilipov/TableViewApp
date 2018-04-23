@@ -30,7 +30,7 @@ struct DataStructureModel: CellProtocol  {
     }
     
     func getLink() -> URL {
-        guard let url = URL(string: self.link) else { return URL(string: "http://4pda.ru")! }
+        guard let url = URL(string: self.link) else { return URL(string: "https://www.wikipedia.org")! }
         return url
     }
 }

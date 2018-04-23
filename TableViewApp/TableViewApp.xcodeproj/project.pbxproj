@@ -16,11 +16,12 @@
 		36551810207F650B00934D6F /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3655180F207F650B00934D6F /* TableViewController.swift */; };
 		36551812207F69BC00934D6F /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36551811207F69BC00934D6F /* CustomTableViewCell.swift */; };
 		36551814207F9BE100934D6F /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36551813207F9BE100934D6F /* DescriptionViewController.swift */; };
-		365518162080ACB500934D6F /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365518152080ACB500934D6F /* ModelData.swift */; };
+		365518162080ACB500934D6F /* EntityModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365518152080ACB500934D6F /* EntityModelData.swift */; };
 		365518192080B50200934D6F /* ModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365518182080B50200934D6F /* ModelProtocol.swift */; };
 		367ED51B208A22C900E93FE1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367ED51A208A22C900E93FE1 /* WebViewController.swift */; };
 		367ED51D208A22D900E93FE1 /* WKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367ED51C208A22D900E93FE1 /* WKViewController.swift */; };
 		367ED51F208A22F200E93FE1 /* SafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367ED51E208A22F200E93FE1 /* SafariViewController.swift */; };
+		36BAFFCA208E2BBD00F6A7F1 /* BrowserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BAFFC9208E2BBD00F6A7F1 /* BrowserProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,11 +36,12 @@
 		3655180F207F650B00934D6F /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		36551811207F69BC00934D6F /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		36551813207F9BE100934D6F /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
-		365518152080ACB500934D6F /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		365518152080ACB500934D6F /* EntityModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityModelData.swift; sourceTree = "<group>"; };
 		365518182080B50200934D6F /* ModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelProtocol.swift; sourceTree = "<group>"; };
 		367ED51A208A22C900E93FE1 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		367ED51C208A22D900E93FE1 /* WKViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKViewController.swift; sourceTree = "<group>"; };
 		367ED51E208A22F200E93FE1 /* SafariViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariViewController.swift; sourceTree = "<group>"; };
+		36BAFFC9208E2BBD00F6A7F1 /* BrowserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				365518172080B4DF00934D6F /* Model */,
 				3651C2F22084BE48003D24AE /* CellModel */,
 				367ED519208A228800E93FE1 /* Controllers */,
+				36BAFFCB208E2BD600F6A7F1 /* Browsers */,
 				36551801207F647E00934D6F /* Main.storyboard */,
 				36551804207F648000934D6F /* Assets.xcassets */,
 				36551806207F648000934D6F /* LaunchScreen.storyboard */,
@@ -96,7 +99,7 @@
 		365518172080B4DF00934D6F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				365518152080ACB500934D6F /* ModelData.swift */,
+				365518152080ACB500934D6F /* EntityModelData.swift */,
 				365518182080B50200934D6F /* ModelProtocol.swift */,
 			);
 			path = Model;
@@ -108,11 +111,19 @@
 				3655180F207F650B00934D6F /* TableViewController.swift */,
 				36551811207F69BC00934D6F /* CustomTableViewCell.swift */,
 				36551813207F9BE100934D6F /* DescriptionViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		36BAFFCB208E2BD600F6A7F1 /* Browsers */ = {
+			isa = PBXGroup;
+			children = (
+				36BAFFC9208E2BBD00F6A7F1 /* BrowserProtocol.swift */,
 				367ED51A208A22C900E93FE1 /* WebViewController.swift */,
 				367ED51C208A22D900E93FE1 /* WKViewController.swift */,
 				367ED51E208A22F200E93FE1 /* SafariViewController.swift */,
 			);
-			path = Controllers;
+			path = Browsers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,12 +197,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				365518162080ACB500934D6F /* ModelData.swift in Sources */,
+				365518162080ACB500934D6F /* EntityModelData.swift in Sources */,
 				367ED51D208A22D900E93FE1 /* WKViewController.swift in Sources */,
 				365518192080B50200934D6F /* ModelProtocol.swift in Sources */,
 				36551812207F69BC00934D6F /* CustomTableViewCell.swift in Sources */,
 				367ED51B208A22C900E93FE1 /* WebViewController.swift in Sources */,
 				3651C2F42084C0E4003D24AE /* DataStructureModel.swift in Sources */,
+				36BAFFCA208E2BBD00F6A7F1 /* BrowserProtocol.swift in Sources */,
 				3651C2F12084BE3C003D24AE /* CellProtocol.swift in Sources */,
 				367ED51F208A22F200E93FE1 /* SafariViewController.swift in Sources */,
 				365517FE207F647E00934D6F /* AppDelegate.swift in Sources */,

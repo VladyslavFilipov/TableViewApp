@@ -9,44 +9,29 @@
 import UIKit
 import SafariServices
 
-class SafariViewController: UIViewController, SFSafariViewControllerDelegate {
-
-    var entity = DataStructureModel(title: "1", deskr: "1", link: "http://4pda.ru")
-    var pidor = false
+class SafariViewController: UIViewController, SFSafariViewControllerDelegate, BrowserProtocol {
     
-    override func viewWillAppear(_ animated: Bool) {
+    var linkOnWiki: URL?
+    
+    var isItDone = false
+    
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        
-        guard let myURL = entity.getLink() else {
-            print("Error url")
-            return
-        }
+        guard let myURL = linkOnWiki else { return }
         print(myURL)
         
         let controller = SFSafariViewController(url: myURL)
         controller.delegate = self
         
-        if pidor {
-            dismiss(animated: true, completion: nil)
+        if isItDone {
+            dismiss(animated: false, completion: nil)
         } else {
-            self.present(controller, animated: true)
+            self.present(controller, animated: false)
         }
     }
     
     func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
-        pidor = true
+        isItDone = true
     }
-    
-//    func safariViewController(_ controller: SFSafariViewController, didCompleteInitialLoad didLoadSuccessfully: Bool) {
-//        print("fuck")
-//    }
-//
-//    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
-//        dismiss(animated: true, completion: { self.performSegueToReturnBack() })
-//    }
-//
-//    @IBAction func cancelButtonPressed(_ sender: Any) {
-//        performSegueToReturnBack()
-//    }
 }

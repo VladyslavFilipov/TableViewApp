@@ -8,9 +8,9 @@
 
 import UIKit
 
-class WebViewController: UIViewController, UIScrollViewDelegate {
+class WebViewController: UIViewController, UIScrollViewDelegate, BrowserProtocol {
     
-    var entity = DataStructureModel(title: "", deskr: "", link: "")
+    var linkOnWiki: URL?
 
     @IBOutlet weak var browserToolBar: UIToolbar!
     @IBOutlet weak var browserWebView: UIWebView!
@@ -19,7 +19,8 @@ class WebViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         browserWebView.scrollView.delegate = self
-        let request = URLRequest(url: entity.getLink())
+        guard let url = linkOnWiki else { return }
+        let request = URLRequest(url: url)
         browserWebView.loadRequest(request)
     }
     
