@@ -19,6 +19,7 @@ class DescriptionViewController: UIViewController {
     @IBOutlet weak var descriptionScrollView: UIScrollView!
     @IBOutlet weak var buttomConstraint: NSLayoutConstraint!
     @IBOutlet weak var allButtonsStackView: UIStackView!
+    @IBOutlet weak var viewBottomConstraint: NSLayoutConstraint!
     
     var cellEntity = DataStructureModel(title: "", deskr: "", link: "")
     var buttomAnhcoreOfStackView: NSLayoutConstraint!
@@ -92,10 +93,16 @@ class DescriptionViewController: UIViewController {
         self.moreLessButton.setTitle(title)
         self.heightConstraint.priority = priority
         self.buttomConstraint.constant = constraintConstant
+        self.viewBottomConstraint.priority = priority
         self.inversion(isTaped)
     }
     @IBAction func vizualizationButtonPressed(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
+        guard let controller = storyboard.instantiateViewController(withIdentifier: "VizualizationViewController") as? VizualizationViewController else { return }
+            controller.dataStructureTitle = cellEntity.getTitle()
+        let viewController = controller as UIViewController
+        self.present(viewController, animated: true, completion: nil)
     }
     
     private func inversion(_ isActive: Bool) {
@@ -121,5 +128,10 @@ extension UIButton {
         self.setTitle(title, for: .normal)
         self.setTitle(title, for: .disabled)
         self.setTitle(title, for: .focused)
+    }
+    func setTitleColor(_ color: UIColor) {
+        self.setTitleColor(color, for: .normal)
+        self.setTitleColor(color, for: .disabled)
+        self.setTitleColor(color, for: .focused)
     }
 }

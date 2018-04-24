@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36140E26208F4338003259F6 /* VizualizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36140E25208F4338003259F6 /* VizualizationViewController.swift */; };
+		36140E28208F4821003259F6 /* VizualizationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36140E27208F4821003259F6 /* VizualizationTableViewController.swift */; };
+		36140E2B208F4A6F003259F6 /* VizualizationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36140E2A208F4A6F003259F6 /* VizualizationProtocol.swift */; };
 		3651C2F12084BE3C003D24AE /* CellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3651C2F02084BE3C003D24AE /* CellProtocol.swift */; };
 		3651C2F42084C0E4003D24AE /* DataStructureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3651C2F32084C0E4003D24AE /* DataStructureModel.swift */; };
 		365517FE207F647E00934D6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365517FD207F647E00934D6F /* AppDelegate.swift */; };
@@ -25,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36140E25208F4338003259F6 /* VizualizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VizualizationViewController.swift; sourceTree = "<group>"; };
+		36140E27208F4821003259F6 /* VizualizationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VizualizationTableViewController.swift; sourceTree = "<group>"; };
+		36140E2A208F4A6F003259F6 /* VizualizationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VizualizationProtocol.swift; sourceTree = "<group>"; };
 		3651C2F02084BE3C003D24AE /* CellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProtocol.swift; sourceTree = "<group>"; };
 		3651C2F32084C0E4003D24AE /* DataStructureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructureModel.swift; sourceTree = "<group>"; };
 		365517FA207F647E00934D6F /* TableViewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +61,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36140E29208F482A003259F6 /* Vizualization */ = {
+			isa = PBXGroup;
+			children = (
+				36140E2A208F4A6F003259F6 /* VizualizationProtocol.swift */,
+				36140E25208F4338003259F6 /* VizualizationViewController.swift */,
+				36140E27208F4821003259F6 /* VizualizationTableViewController.swift */,
+			);
+			path = Vizualization;
+			sourceTree = "<group>";
+		};
 		3651C2F22084BE48003D24AE /* CellModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +104,7 @@
 				3651C2F22084BE48003D24AE /* CellModel */,
 				367ED519208A228800E93FE1 /* Controllers */,
 				36BAFFCB208E2BD600F6A7F1 /* Browsers */,
+				36140E29208F482A003259F6 /* Vizualization */,
 				36551801207F647E00934D6F /* Main.storyboard */,
 				36551804207F648000934D6F /* Assets.xcassets */,
 				36551806207F648000934D6F /* LaunchScreen.storyboard */,
@@ -199,10 +216,13 @@
 			files = (
 				365518162080ACB500934D6F /* EntityModelData.swift in Sources */,
 				367ED51D208A22D900E93FE1 /* WKViewController.swift in Sources */,
+				36140E2B208F4A6F003259F6 /* VizualizationProtocol.swift in Sources */,
 				365518192080B50200934D6F /* ModelProtocol.swift in Sources */,
+				36140E26208F4338003259F6 /* VizualizationViewController.swift in Sources */,
 				36551812207F69BC00934D6F /* CustomTableViewCell.swift in Sources */,
 				367ED51B208A22C900E93FE1 /* WebViewController.swift in Sources */,
 				3651C2F42084C0E4003D24AE /* DataStructureModel.swift in Sources */,
+				36140E28208F4821003259F6 /* VizualizationTableViewController.swift in Sources */,
 				36BAFFCA208E2BBD00F6A7F1 /* BrowserProtocol.swift in Sources */,
 				3651C2F12084BE3C003D24AE /* CellProtocol.swift in Sources */,
 				367ED51F208A22F200E93FE1 /* SafariViewController.swift in Sources */,

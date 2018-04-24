@@ -13,7 +13,7 @@ class SafariViewController: UIViewController, SFSafariViewControllerDelegate, Br
     
     var linkOnWiki: URL?
     
-    var isItDone = false
+    var itIsDone = false
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
