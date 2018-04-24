@@ -14,23 +14,21 @@ class DescriptionViewController: UIViewController {
     @IBOutlet weak var descriptionNavigationBar: UINavigationItem!
     @IBOutlet weak var moreLessButton: UIButton!
     @IBOutlet weak var fadingView: UIView!
-    @IBOutlet weak var wikiLinkButton: UIButton!
+    @IBOutlet weak var hiddenButtonsStackView: UIStackView!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var descriptionScrollView: UIScrollView!
     @IBOutlet weak var buttomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var allButtonsStackView: UIStackView!
     
     var cellEntity = DataStructureModel(title: "", deskr: "", link: "")
-    var buttomAnhcoreOfMoreLess: NSLayoutConstraint!
-    var buttomAnhcoreOfWiki: NSLayoutConstraint!
-    var wikiBottomConstraint: NSLayoutConstraint!
+    var buttomAnhcoreOfStackView: NSLayoutConstraint!
     var copyDescriptionViewBottomConstraintConstant: CGFloat!
     var isMoreButtonPressed = false
     
     override func viewDidLoad() {
-        buttomAnhcoreOfMoreLess = moreLessButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20)
-        buttomAnhcoreOfWiki = wikiLinkButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 70)
-        wikiBottomConstraint = wikiLinkButton.bottomAnchor.constraint(equalTo: descriptionScrollView.bottomAnchor, constant: -20)
+        buttomAnhcoreOfStackView = allButtonsStackView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20)
         copyDescriptionViewBottomConstraintConstant = buttomConstraint.constant
+        hiddenButtonsStackView.isHidden = true
         descriptionNavigationBar.title = cellEntity.getTitle()
         descriptionLabel.text = cellEntity.getDescr()
         fadingView.opacityGradient()
@@ -96,13 +94,14 @@ class DescriptionViewController: UIViewController {
         self.buttomConstraint.constant = constraintConstant
         self.inversion(isTaped)
     }
+    @IBAction func vizualizationButtonPressed(_ sender: Any) {
+        
+    }
     
     private func inversion(_ isActive: Bool) {
-        self.wikiBottomConstraint.isActive = isActive
-        self.buttomAnhcoreOfMoreLess.isActive = isActive
-        self.buttomAnhcoreOfWiki.isActive = isActive
+        self.buttomAnhcoreOfStackView.isActive = isActive
         self.fadingView.isHidden = isActive
-        self.wikiLinkButton.isHidden = !isActive
+        self.hiddenButtonsStackView.isHidden = !isActive
         self.isMoreButtonPressed = isActive
     }
 }
