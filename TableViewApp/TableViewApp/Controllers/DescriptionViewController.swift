@@ -100,9 +100,9 @@ class DescriptionViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         guard let controller = storyboard.instantiateViewController(withIdentifier: "VizualizationViewController") as? VizualizationViewController else { return }
-            controller.dataStructureTitle = cellEntity.getTitle()
-        let viewController = controller as UIViewController
-        self.present(viewController, animated: true, completion: nil)
+        controller.dataStructureTitle = cellEntity.getTitle()
+        let vizualizationController = controller as UIViewController
+        self.navigationController?.pushViewController(vizualizationController, animated: true)
     }
     
     private func inversion(_ isActive: Bool) {

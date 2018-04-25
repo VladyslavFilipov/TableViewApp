@@ -24,7 +24,7 @@ class SafariViewController: UIViewController, SFSafariViewControllerDelegate, Br
         let controller = SFSafariViewController(url: myURL)
         controller.delegate = self
         
-        if isItDone {
+        if itIsDone {
             dismiss(animated: false, completion: nil)
         } else {
             self.present(controller, animated: false)
@@ -32,6 +32,6 @@ class SafariViewController: UIViewController, SFSafariViewControllerDelegate, Br
     }
     
     func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
-        isItDone = true
+        itIsDone = true
     }
 }

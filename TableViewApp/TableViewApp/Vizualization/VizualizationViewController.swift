@@ -12,13 +12,15 @@ class VizualizationViewController: UIViewController, VizualizationProtocol {
     
     var dataStructureTitle: String?
     
-    let tableViewController = VizualizationTableViewController()
+    fileprivate var vizualizationTableViewController: VizualizationTableViewController?
+    var numberOfCells = 0
     
-    @IBOutlet weak var vizualizationNavigationBar: UINavigationBar!
+    @IBOutlet weak var vizualizationNavigetionItem: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        vizualizationNavigationBar.topItem?.title = dataStructureTitle
+        vizualizationNavigetionItem.title = dataStructureTitle
+        
         let buttonWidth = self.view.bounds.width
         let addButton = createButton(named: "+", withSelector: #selector(addButtonAction), 0, buttonWidth/3)
         let substractButton = createButton(named: "-", withSelector: #selector(substractButtonAction), buttonWidth * 2/3, buttonWidth/3)
@@ -39,23 +41,37 @@ class VizualizationViewController: UIViewController, VizualizationProtocol {
     }
     
     @objc func addButtonAction(sender: UIButton!) {
-        tableViewController.numberOfCells += 1
-        let indexPath = IndexPath(row: tableViewController.numberOfCells - 1, section: 0)
-        
-        tableViewController.addCell(indexPath)
-        print("tapped")
+        numberOfCells += 1
+        vizualizationTableViewController?.numberOfCells = numberOfCells
+        let indexPath = IndexPath(row: numberOfCells - 1, section: 0)
+        vizualizationTableViewController?.tableView.beginUpdates()
+        vizualizationTableViewController?.tableView.insertRows(at: [indexPath], with: .automatic)
+        vizualizationTableViewController?.tableView.endUpdates()
+        print("tapped", numberOfCells)
     }
     
     @objc func substractButtonAction(sender: UIButton!) {
-        print("also tapped")
+        if numberOfCells > 0 {
+            numberOfCells -= 1
+            vizualizationTableViewController?.numberOfCells = numberOfCells
+            let indexPath = IndexPath(row: 0, section: 0)
+            vizualizationTableViewController?.tableView.beginUpdates()
+            vizualizationTableViewController?.tableView.deleteRows(at: [indexPath], with: .automatic)
+            vizualizationTableViewController?.tableView.endUpdates()
+        }
+        print("also tapped", numberOfCells)
     }
     
     @objc func saveButtonAction(sender: UIButton!) {
+        
         print("ok")
     }
     
-    @IBAction func CancelButtonPressed(_ sender: Any) {
-        performSegueToReturnBack()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination
+        if let vizualizationController = destination as? VizualizationTableViewController {
+            vizualizationTableViewController = vizualizationController
+        }
     }
 }
 

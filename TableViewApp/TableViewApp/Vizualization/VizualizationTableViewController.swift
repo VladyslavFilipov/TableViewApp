@@ -10,7 +10,7 @@ import UIKit
 
 class VizualizationTableViewController: UITableViewController {
     
-    var numberOfCells: Int = 0
+    var numberOfCells = Int()
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return numberOfCells
