@@ -40,4 +40,3 @@ class WebViewController: UIViewController, UIScrollViewDelegate, BrowserProtocol
     }
 }
 
-

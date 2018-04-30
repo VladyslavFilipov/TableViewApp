@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+
 		36140E26208F4338003259F6 /* VisualizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36140E25208F4338003259F6 /* VisualizationViewController.swift */; };
 		36140E28208F4821003259F6 /* VisualizationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36140E27208F4821003259F6 /* VisualizationTableViewController.swift */; };
 		3647196E2096F72E00A42C5B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647196D2096F72E00A42C5B /* CustomTextField.swift */; };
@@ -15,6 +16,7 @@
 		3647197420975CF500A42C5B /* DictionaryCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647197320975CF500A42C5B /* DictionaryCM.swift */; };
 		3647197620975D0B00A42C5B /* PriorityQueueCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647197520975D0B00A42C5B /* PriorityQueueCM.swift */; };
 		3647197820975D1700A42C5B /* ListCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647197720975D1700A42C5B /* ListCM.swift */; };
+
 		3651C2F12084BE3C003D24AE /* CellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3651C2F02084BE3C003D24AE /* CellProtocol.swift */; };
 		3651C2F42084C0E4003D24AE /* DataStructureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3651C2F32084C0E4003D24AE /* DataStructureModel.swift */; };
 		365517FE207F647E00934D6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365517FD207F647E00934D6F /* AppDelegate.swift */; };
@@ -26,11 +28,14 @@
 		36551814207F9BE100934D6F /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36551813207F9BE100934D6F /* DescriptionViewController.swift */; };
 		365518162080ACB500934D6F /* EntityModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365518152080ACB500934D6F /* EntityModelData.swift */; };
 		365518192080B50200934D6F /* ModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365518182080B50200934D6F /* ModelProtocol.swift */; };
+
 		366AF37E2090989700D53188 /* VisualizationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366AF37D2090989700D53188 /* VisualizationTableViewCell.swift */; };
+
 		367ED51B208A22C900E93FE1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367ED51A208A22C900E93FE1 /* WebViewController.swift */; };
 		367ED51D208A22D900E93FE1 /* WKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367ED51C208A22D900E93FE1 /* WKViewController.swift */; };
 		367ED51F208A22F200E93FE1 /* SafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367ED51E208A22F200E93FE1 /* SafariViewController.swift */; };
 		36BAFFCA208E2BBD00F6A7F1 /* BrowserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BAFFC9208E2BBD00F6A7F1 /* BrowserProtocol.swift */; };
+
 		36ECFACD20933EEA002BAACD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ECFACC20933EEA002BAACD /* Extensions.swift */; };
 		36ECFAEF20936D8F002BAACD /* Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ECFAEE20936D8F002BAACD /* Adapter.swift */; };
 		36ECFAF120936DCA002BAACD /* AdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ECFAF020936DCA002BAACD /* AdapterProtocol.swift */; };
@@ -56,6 +61,7 @@
 		3647197320975CF500A42C5B /* DictionaryCM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryCM.swift; sourceTree = "<group>"; };
 		3647197520975D0B00A42C5B /* PriorityQueueCM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityQueueCM.swift; sourceTree = "<group>"; };
 		3647197720975D1700A42C5B /* ListCM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCM.swift; sourceTree = "<group>"; };
+
 		3651C2F02084BE3C003D24AE /* CellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProtocol.swift; sourceTree = "<group>"; };
 		3651C2F32084C0E4003D24AE /* DataStructureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructureModel.swift; sourceTree = "<group>"; };
 		365517FA207F647E00934D6F /* TableViewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,11 +75,12 @@
 		36551813207F9BE100934D6F /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		365518152080ACB500934D6F /* EntityModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityModelData.swift; sourceTree = "<group>"; };
 		365518182080B50200934D6F /* ModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelProtocol.swift; sourceTree = "<group>"; };
-		366AF37D2090989700D53188 /* VisualizationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizationTableViewCell.swift; sourceTree = "<group>"; };
+
 		367ED51A208A22C900E93FE1 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		367ED51C208A22D900E93FE1 /* WKViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKViewController.swift; sourceTree = "<group>"; };
 		367ED51E208A22F200E93FE1 /* SafariViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariViewController.swift; sourceTree = "<group>"; };
 		36BAFFC9208E2BBD00F6A7F1 /* BrowserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserProtocol.swift; sourceTree = "<group>"; };
+
 		36ECFACC20933EEA002BAACD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		36ECFAEE20936D8F002BAACD /* Adapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adapter.swift; sourceTree = "<group>"; };
 		36ECFAF020936DCA002BAACD /* AdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdapterProtocol.swift; sourceTree = "<group>"; };
@@ -88,6 +95,7 @@
 		36ECFB0220936FBB002BAACD /* SetCM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCM.swift; sourceTree = "<group>"; };
 		36ECFB042093744A002BAACD /* Enumarations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumarations.swift; sourceTree = "<group>"; };
 		36ECFB0620937850002BAACD /* CellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellModel.swift; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +109,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+
 		36140E29208F482A003259F6 /* Visualization */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,13 +122,16 @@
 				36ECFAED2093549E002BAACD /* ViewControllers */,
 			);
 			path = Visualization;
+
 			sourceTree = "<group>";
 		};
 		3651C2F22084BE48003D24AE /* CellModel */ = {
 			isa = PBXGroup;
 			children = (
+
 				3651C2F02084BE3C003D24AE /* CellProtocol.swift */,
 				3651C2F32084C0E4003D24AE /* DataStructureModel.swift */,
+
 			);
 			path = CellModel;
 			sourceTree = "<group>";
@@ -144,13 +156,17 @@
 			isa = PBXGroup;
 			children = (
 				365517FD207F647E00934D6F /* AppDelegate.swift */,
+
 				36ECFACC20933EEA002BAACD /* Extensions.swift */,
 				36ECFB042093744A002BAACD /* Enumarations.swift */,
+
 				365518172080B4DF00934D6F /* Model */,
 				3651C2F22084BE48003D24AE /* CellModel */,
 				367ED519208A228800E93FE1 /* Controllers */,
 				36BAFFCB208E2BD600F6A7F1 /* Browsers */,
+
 				36140E29208F482A003259F6 /* Visualization */,
+
 				36551801207F647E00934D6F /* Main.storyboard */,
 				36551804207F648000934D6F /* Assets.xcassets */,
 				36551806207F648000934D6F /* LaunchScreen.storyboard */,
@@ -162,8 +178,10 @@
 		365518172080B4DF00934D6F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+
 				365518182080B50200934D6F /* ModelProtocol.swift */,
 				365518152080ACB500934D6F /* EntityModelData.swift */,
+
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -171,8 +189,10 @@
 		367ED519208A228800E93FE1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+
 				36551811207F69BC00934D6F /* CustomTableViewCell.swift */,
 				3655180F207F650B00934D6F /* TableViewController.swift */,
+
 				36551813207F9BE100934D6F /* DescriptionViewController.swift */,
 			);
 			path = Controllers;
@@ -189,6 +209,7 @@
 			path = Browsers;
 			sourceTree = "<group>";
 		};
+
 		36ECFAD420934F13002BAACD /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +280,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -331,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				365518162080ACB500934D6F /* EntityModelData.swift in Sources */,
+
 				36ECFAEF20936D8F002BAACD /* Adapter.swift in Sources */,
 				36ECFAF520936E57002BAACD /* CMFactory.swift in Sources */,
 				36ECFB0120936F83002BAACD /* VisualizationTableDataProtocol.swift in Sources */,
@@ -365,6 +388,7 @@
 				36ECFB0320936FBB002BAACD /* SetCM.swift in Sources */,
 				36551810207F650B00934D6F /* TableViewController.swift in Sources */,
 				36ECFAFF20936F60002BAACD /* VisualizationTableCellProtocol.swift in Sources */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

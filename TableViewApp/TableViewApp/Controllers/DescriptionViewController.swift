@@ -21,7 +21,9 @@ class DescriptionViewController: UIViewController {
     @IBOutlet weak var allButtonsStackView: UIStackView!
     @IBOutlet weak var viewBottomConstraint: NSLayoutConstraint!
     
+
     var cellEntity = DataStructureModel(title: "", deskr: "", link: "", type: .stack)
+
     var buttomAnhcoreOfStackView: NSLayoutConstraint!
     var copyDescriptionViewBottomConstraintConstant: CGFloat!
     var isMoreButtonPressed = false
@@ -96,6 +98,7 @@ class DescriptionViewController: UIViewController {
         self.viewBottomConstraint.priority = priority
         self.inversion(isTaped)
     }
+
     
     @IBAction func vizualizationButtonPressed(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -103,6 +106,7 @@ class DescriptionViewController: UIViewController {
         guard let vizualizationController = storyboard.instantiateViewController(withIdentifier: "VizualizationViewController") as? VisualizationViewController else { return }
         vizualizationController.controlManager = ControlManagerFactory.getControlManager(byType: cellEntity.getType())
         vizualizationController.title = self.title
+
         self.navigationController?.pushViewController(vizualizationController, animated: true)
     }
     

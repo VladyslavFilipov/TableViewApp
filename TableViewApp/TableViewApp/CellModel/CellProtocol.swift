@@ -11,5 +11,6 @@ import Foundation
 protocol CellProtocol {
     func getTitle() -> String
     func getDescr() -> String
+
     func getType() -> DataStructureType
 }

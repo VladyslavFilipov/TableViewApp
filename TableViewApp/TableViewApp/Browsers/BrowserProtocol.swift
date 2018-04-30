@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 protocol BrowserProtocol {
     var linkOnWiki: URL? { get set }
 }
