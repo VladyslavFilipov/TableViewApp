@@ -15,6 +15,7 @@
 		3647197420975CF500A42C5B /* DictionaryCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647197320975CF500A42C5B /* DictionaryCM.swift */; };
 		3647197620975D0B00A42C5B /* PriorityQueueCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647197520975D0B00A42C5B /* PriorityQueueCM.swift */; };
 		3647197820975D1700A42C5B /* ListCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647197720975D1700A42C5B /* ListCM.swift */; };
+		3647197A2097955A00A42C5B /* CustomSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364719792097955A00A42C5B /* CustomSwitch.swift */; };
 		3651C2F12084BE3C003D24AE /* CellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3651C2F02084BE3C003D24AE /* CellProtocol.swift */; };
 		3651C2F42084C0E4003D24AE /* DataStructureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3651C2F32084C0E4003D24AE /* DataStructureModel.swift */; };
 		365517FE207F647E00934D6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365517FD207F647E00934D6F /* AppDelegate.swift */; };
@@ -56,6 +57,7 @@
 		3647197320975CF500A42C5B /* DictionaryCM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryCM.swift; sourceTree = "<group>"; };
 		3647197520975D0B00A42C5B /* PriorityQueueCM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityQueueCM.swift; sourceTree = "<group>"; };
 		3647197720975D1700A42C5B /* ListCM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCM.swift; sourceTree = "<group>"; };
+		364719792097955A00A42C5B /* CustomSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitch.swift; sourceTree = "<group>"; };
 		3651C2F02084BE3C003D24AE /* CellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProtocol.swift; sourceTree = "<group>"; };
 		3651C2F32084C0E4003D24AE /* DataStructureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructureModel.swift; sourceTree = "<group>"; };
 		365517FA207F647E00934D6F /* TableViewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -228,6 +230,7 @@
 			children = (
 				36ECFAF220936E01002BAACD /* CustomButton.swift */,
 				3647196D2096F72E00A42C5B /* CustomTextField.swift */,
+				364719792097955A00A42C5B /* CustomSwitch.swift */,
 			);
 			path = "Visualization Buttons and TextFields";
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 			files = (
 				365518162080ACB500934D6F /* EntityModelData.swift in Sources */,
 				36ECFAEF20936D8F002BAACD /* Adapter.swift in Sources */,
+				3647197A2097955A00A42C5B /* CustomSwitch.swift in Sources */,
 				36ECFAF520936E57002BAACD /* CMFactory.swift in Sources */,
 				36ECFB0120936F83002BAACD /* VisualizationTableDataProtocol.swift in Sources */,
 				36ECFACD20933EEA002BAACD /* Extensions.swift in Sources */,

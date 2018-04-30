@@ -22,8 +22,7 @@ enum DataStructureType {
 enum MenuType {
     case button(title: String, action: ()->() )
     case textField(placeholder: String, action: (String)->() )
-    case stateSwitch()
-    case label(title: String)
+    case stateSwitch(action: (Bool)->())
 }
 
 enum Status {

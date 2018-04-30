@@ -23,8 +23,7 @@ class VisualizationTableViewController: UITableViewController, VisualizationTabl
     }
     
     func delete(index: Int) {
-        if !DataSructureModelArray.indices.contains(index) {
-            return
+        if !DataSructureModelArray.indices.contains(index) { return
         } else {
             DataSructureModelArray.remove(at: index)
             tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .left)

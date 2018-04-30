@@ -19,6 +19,10 @@ class QueueManager: ControlManagerProtocol {
     private func add() {
         guard let tableData = visualizationTableData else { return }
         tableData.add(index: 0, value: "0", status: .highlighted)
+        changeStatus((0,0))
+        if tableData.DataSructureModelArray.count > 1 {
+            changeStatus((0, tableData.DataSructureModelArray.count - 1))
+        }
     }
     
     private func delete() {
@@ -29,6 +33,19 @@ class QueueManager: ControlManagerProtocol {
         } else {
             tableData.delete(index: 0)
         }
+        if tableData.DataSructureModelArray.count > 0 {
+            changeStatus((0,index - 1))
+        }
+    }
+    
+    private func changeStatus(_ indeces: (Int, Int)) {
+        guard var tableData = visualizationTableData else { return }
+        for index in 0..<tableData.DataSructureModelArray.count {
+            tableData.DataSructureModelArray[index].status = .common
+        }
+        tableData.DataSructureModelArray[indeces.0].status = .highlighted
+        tableData.DataSructureModelArray[indeces.1].status = .highlighted
+        tableData.updateTable()
     }
     
     func createMenu() -> [MenuType] {

@@ -15,19 +15,16 @@ class Adapter: AdapterProtocol {
     
     func setUpControllers(by manager: ControlManagerProtocol, in view: UIStackView, and otherView: UIStackView?) {
         array = manager.createMenu()
-        
+
         for item in array {
             
             switch item {
-            case .button(let title,let action):
+            case .button(let title, let action):
                 view.addArrangedSubview(CustomButton(title: title, action: action))
             case .textField(let placeholder, let action):
-                let textField = CustomTextField(placeholder: placeholder, action: action)
-                otherView?.addArrangedSubview(textField)
-            case .stateSwitch():
-                print("hello")
-            case .label(let title):
-                print("hello")
+                otherView?.addArrangedSubview(CustomTextField(placeholder: placeholder, action: action))
+            case .stateSwitch(let action):
+                view.addArrangedSubview(CustomSwitch(action: action))
             }
         }
     }

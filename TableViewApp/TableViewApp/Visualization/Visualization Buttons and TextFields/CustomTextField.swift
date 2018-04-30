@@ -17,7 +17,7 @@ class CustomTextField: UITextField, UITextFieldDelegate {
         self.setPlaceholder(placeholder)
         self.action = action
         self.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-        self.heightAnchor.constraint(equalToConstant: 64)
+        self.heightAnchor.constraint(equalToConstant: 64).isActive = true
         self.keyboardType = UIKeyboardType.decimalPad
         self.delegate = self
     }

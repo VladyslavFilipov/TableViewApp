@@ -25,11 +25,24 @@ class StackManager: ControlManagerProtocol {
         } else {
             tableData.add(index: 0, value: "0", status: .highlighted)
         }
+        changeStatus(0)
     }
     
     private func delete() {
         guard let tableData = visualizationTableData else { return }
         tableData.delete(index: 0)
+        if tableData.DataSructureModelArray.count > 0 {
+            changeStatus(0)
+        }
+    }
+    
+    private func changeStatus(_ index: Int) {
+        guard var tableData = visualizationTableData else { return }
+        for index in 0..<tableData.DataSructureModelArray.count {
+            tableData.DataSructureModelArray[index].status = .common
+        }
+        tableData.DataSructureModelArray[index].status = .highlighted
+        tableData.updateTable()
     }
     
     func createMenu() -> [MenuType] {

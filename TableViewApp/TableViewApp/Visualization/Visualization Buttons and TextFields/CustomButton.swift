@@ -15,12 +15,11 @@ class CustomButton: UIButton {
     
     init(title: String, action: ( ()->() )? = nil) {
         super.init(frame: .zero)
-        
         self.setTitle(title, for: .normal)
         self.setTitleColor(.blue, for: .normal)
         self.action = action
-        self.setTarget()
-        self.heightAnchor.constraint(equalToConstant: 64)
+        self.addTarget(self, action: #selector(getAction), for: .touchUpInside)
+        self.heightAnchor.constraint(equalToConstant: 64).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -29,9 +28,5 @@ class CustomButton: UIButton {
     
     @objc func getAction() {
         action?()
-    }
-    
-    func setTarget() {
-        self.addTarget(self, action: #selector(getAction), for: .touchUpInside)
     }
 }

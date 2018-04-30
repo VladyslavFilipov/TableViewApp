@@ -216,14 +216,18 @@
                                     <segue destination="m2Z-Xi-A5X" kind="embed" id="o4R-BE-eVr"/>
                                 </connections>
                             </containerView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8Cv-oQ-dq0">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8Cv-oQ-dq0">
                                 <rect key="frame" x="0.0" y="64" width="375" height="64"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lT0-fV-VF4">
+                                    <stackView opaque="NO" contentMode="scaleAspectFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lT0-fV-VF4">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="375" id="nLI-Ap-cmt"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="Kmn-aA-X6m"/>
                                     <constraint firstAttribute="height" priority="750" constant="64" id="o37-t9-jog"/>
                                 </constraints>
                             </stackView>

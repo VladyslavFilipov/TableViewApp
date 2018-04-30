@@ -96,3 +96,4 @@ func ==(lhs: CellDataModel, rhs: CellDataModel) -> Bool {
     
     return areEqual
 }
+

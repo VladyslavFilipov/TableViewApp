@@ -23,19 +23,13 @@ struct DataStructureModel: CellProtocol  {
         self.type = type
     }
     
-    func getTitle() -> String {
-        return self.title
-    }
+    var getTitle: String { return self.title }
     
-    func getDescr() -> String {
-        return self.descr
-    }
+    var getDescr: String { return self.descr }
     
-    func getType() -> DataStructureType {
-        return self.type
-    }
+    var getType: DataStructureType { return self.type }
     
-    func getLink() -> URL {
+    var getLink: URL {
         guard let url = URL(string: self.link) else { return URL(string: "https://www.wikipedia.org")! }
         return url
     }
