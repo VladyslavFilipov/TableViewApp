@@ -21,7 +21,7 @@ class DescriptionViewController: UIViewController {
     @IBOutlet weak var allButtonsStackView: UIStackView!
     @IBOutlet weak var viewBottomConstraint: NSLayoutConstraint!
     
-    var cellEntity = DataStructureModel(title: "", deskr: "", link: "")
+    var cellEntity = DataStructureModel(title: "", deskr: "", link: "", type: .stack)
     var buttomAnhcoreOfStackView: NSLayoutConstraint!
     var copyDescriptionViewBottomConstraintConstant: CGFloat!
     var isMoreButtonPressed = false
@@ -96,12 +96,13 @@ class DescriptionViewController: UIViewController {
         self.viewBottomConstraint.priority = priority
         self.inversion(isTaped)
     }
+    
     @IBAction func vizualizationButtonPressed(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        guard let controller = storyboard.instantiateViewController(withIdentifier: "VizualizationViewController") as? VizualizationViewController else { return }
-        controller.dataStructureTitle = cellEntity.getTitle()
-        let vizualizationController = controller as UIViewController
+        guard let vizualizationController = storyboard.instantiateViewController(withIdentifier: "VizualizationViewController") as? VisualizationViewController else { return }
+        vizualizationController.controlManager = ControlManagerFactory.getControlManager(byType: cellEntity.getType())
+        vizualizationController.title = self.title
         self.navigationController?.pushViewController(vizualizationController, animated: true)
     }
     
@@ -110,28 +111,5 @@ class DescriptionViewController: UIViewController {
         self.fadingView.isHidden = isActive
         self.hiddenButtonsStackView.isHidden = !isActive
         self.isMoreButtonPressed = isActive
-    }
-}
-
-extension UIView {
-    func opacityGradient() {
-        let gradient = CAGradientLayer()
-        gradient.frame = self.bounds
-        gradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor, UIColor.black.cgColor, UIColor.black.cgColor]
-        gradient.locations = [0, 1]
-        self.layer.mask = gradient
-    }
-}
-
-extension UIButton {
-    func setTitle(_ title: String) {
-        self.setTitle(title, for: .normal)
-        self.setTitle(title, for: .disabled)
-        self.setTitle(title, for: .focused)
-    }
-    func setTitleColor(_ color: UIColor) {
-        self.setTitleColor(color, for: .normal)
-        self.setTitleColor(color, for: .disabled)
-        self.setTitleColor(color, for: .focused)
     }
 }

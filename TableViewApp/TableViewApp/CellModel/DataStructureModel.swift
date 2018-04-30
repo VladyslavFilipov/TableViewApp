@@ -14,11 +14,13 @@ struct DataStructureModel: CellProtocol  {
     private var title: String
     private var descr: String
     private var link: String
+    private var type: DataStructureType
     
-    init(title: String, deskr: String, link: String) {
+    init(title: String, deskr: String, link: String, type: DataStructureType) {
         self.title = title
         self.descr = deskr
         self.link = link
+        self.type = type
     }
     
     func getTitle() -> String {
@@ -27,6 +29,10 @@ struct DataStructureModel: CellProtocol  {
     
     func getDescr() -> String {
         return self.descr
+    }
+    
+    func getType() -> DataStructureType {
+        return self.type
     }
     
     func getLink() -> URL {

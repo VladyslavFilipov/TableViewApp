@@ -7,9 +7,9 @@
 //
 
 import Foundation
-import UIKit
 
 protocol CellProtocol {
     func getTitle() -> String
     func getDescr() -> String
+    func getType() -> DataStructureType
 }
