@@ -20,16 +20,14 @@ class ControlManagerFactory: ControlManagerFactoryProtocol {
             return SetManager()
         case .dequeue:
             return DequeueManager()
-//        case "Priority Queue":
-//            return PriorityQueueManager()
-//        case "List(Array)":
-//            return ListManager()
+        case .priorityQueue:
+            return PriorityQueueManager()
+        case .list:
+            return ListManager()
         case .multiSet:
             return MultiSetManager()
-//        case "Dictionary":
-//            return DictionaryManager()
-        default:
-            return QueueManager()
+        case .dictionary:
+            return DictionaryManager()
         }
     }
 }

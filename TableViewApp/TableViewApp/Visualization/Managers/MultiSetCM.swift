@@ -11,43 +11,44 @@ import Foundation
 class MultiSetManager: ControlManagerProtocol {
     
     var textFieldText = ""
-    var visualizationTableData: VisualizationTableDataProtocol?
     
-    func set(delegate: VisualizationTableDataProtocol) {
-        self.visualizationTableData = delegate
-    }
+    var delegate: VisualizationTableDataProtocol?
     
     private func add() {
-        guard var tableData = visualizationTableData else { return }
-        if tableData.DataSructureModelArray.count == 0 && !textFieldText.isEmpty {
-            tableData.add(index: tableData.DataSructureModelArray.count, value: textFieldText, status: .highlighted)
-        } else if tableData.DataSructureModelArray.count > 0 {
-            if  !tableData.DataSructureModelArray.contains(CellDataModel(textFieldText)) {
-                tableData.add(index: tableData.DataSructureModelArray.count, value: textFieldText, status: .highlighted)
-                changeStatus(tableData.DataSructureModelArray.count - 1)
-            } else {
-                guard let index = tableData.DataSructureModelArray.index(of: CellDataModel(textFieldText)) else { return }
-                tableData.DataSructureModelArray[index].helperValue! += 1
-            }
-        }
-        tableData.updateTable()
+//        guard var tableData = delegate else { return }
+//        if tableData.DataSructureModelArray.count == 0 && !textFieldText.isEmpty {
+//            tableData.add(index: tableData.DataSructureModelArray.count, value: textFieldText, status: .highlighted)
+//        } else if tableData.DataSructureModelArray.count > 0 {
+////            if  !tableData.DataSructureModelArray.contains(CellDataModel(textFieldText)) {
+////                tableData.add(index: tableData.DataSructureModelArray.count, value: textFieldText, status: .highlighted)
+////            } else {
+////                guard let index = tableData.DataSructureModelArray.index(of: CellDataModel(textFieldText)) else { return }
+////                let repiat = tableData.DataSructureModelArray[index].repiats
+////                tableData.DataSructureModelArray[index].repiats = repiat + 1
+//            }
+//        }
+////        guard let index = tableData.DataSructureModelArray.index(of: CellDataModel(textFieldText)) else { return }
+//        changeStatus(index)
+//        tableData.updateTable()
     }
     
     private func delete() {
-        guard var tableData = visualizationTableData else { return }
-        guard let index = tableData.DataSructureModelArray.index(of: CellDataModel(textFieldText)) else { return }
-        if tableData.DataSructureModelArray.count > 0 && tableData.DataSructureModelArray[index].helperValue == 1 {
-            if  tableData.DataSructureModelArray.contains(CellDataModel(textFieldText)) {
-                tableData.delete(index: index)
-            }
-        } else if tableData.DataSructureModelArray.count > 0 {
-            tableData.DataSructureModelArray[index].helperValue! -= 1
-        }
-        tableData.updateTable()
+//        guard var tableData = delegate else { return }
+////        guard let index = tableData.DataSructureModelArray.index(of: CellDataModel(textFieldText)) else { return }
+////        if tableData.DataSructureModelArray.count > 0 && tableData.DataSructureModelArray[index].repiats == 1 {
+////            if  tableData.DataSructureModelArray.contains(CellDataModel(textFieldText)) {
+//                tableData.delete(index: index)
+//            }
+//        } else if tableData.DataSructureModelArray.count > 0 {
+//            let repiat = tableData.DataSructureModelArray[index].repiats
+//            tableData.DataSructureModelArray[index].repiats = repiat - 1
+//            changeStatus(index)
+//        }
+//        tableData.updateTable()
     }
     
     private func textFieldDidChange(_ textFieldValue: String) {
-        guard var tableData = visualizationTableData else { return }
+        guard var tableData = delegate else { return }
         textFieldText = textFieldValue
         for index in 0..<tableData.DataSructureModelArray.count {
             tableData.DataSructureModelArray[index].status = .common
@@ -59,9 +60,16 @@ class MultiSetManager: ControlManagerProtocol {
     }
     
     private func changeStatus(_ index: Int) {
-        guard var tableData = visualizationTableData else { return }
+        guard var tableData = delegate else { return }
         for index in 0..<tableData.DataSructureModelArray.count {
             tableData.DataSructureModelArray[index].status = .common
+            let value = tableData.DataSructureModelArray[index].value
+            let repiat = tableData.DataSructureModelArray[index].repiats
+//            if repiat > 1 {
+//                tableData.DataSructureModelArray[index].text = value + "\t - \(repiat) repiats"
+//            } else {
+//                tableData.DataSructureModelArray[index].text = value
+//            }
         }
         tableData.DataSructureModelArray[index].status = .highlighted
     }
@@ -70,7 +78,7 @@ class MultiSetManager: ControlManagerProtocol {
         var arrayControllers: [MenuType] = []
         arrayControllers.append(MenuType.button(title: "+") { self.add() })
         arrayControllers.append(MenuType.button(title: "-") { self.delete() })
-        arrayControllers.append(MenuType.textField(placeholder: "enter value", action: textFieldDidChange))
+        arrayControllers.append(MenuType.textField(placeholder: "Enter value", keyboard: .default, action: textFieldDidChange))
         return arrayControllers
     }
 }

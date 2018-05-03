@@ -9,6 +9,9 @@
 import Foundation
 
 protocol VisualizationTableDataProtocol {
+    
+    var array: [(text: String, status: Status)] { get set }
+    
     var DataSructureModelArray: [CellDataModel] { get set }
     
     func add(index: Int, value: String, status: Status)

@@ -12,13 +12,13 @@ class CustomTextField: UITextField, UITextFieldDelegate {
     
     var action: ( (String)->() )?
     
-    init(placeholder: String, action: ( (String)->() )? = nil) {
+    init(placeholder: String, keyboard: UIKeyboardType, action: ( (String)->() )? = nil) {
         super.init(frame: .zero)
         self.setPlaceholder(placeholder)
         self.action = action
         self.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         self.heightAnchor.constraint(equalToConstant: 64).isActive = true
-        self.keyboardType = UIKeyboardType.decimalPad
+        self.keyboardType = keyboard
         self.delegate = self
     }
     

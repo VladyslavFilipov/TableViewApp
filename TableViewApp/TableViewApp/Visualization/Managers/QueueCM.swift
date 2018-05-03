@@ -10,52 +10,40 @@ import Foundation
 
 class QueueManager: ControlManagerProtocol {
     
-    var visualizationTableData: VisualizationTableDataProtocol?
-    
-    func set(delegate: VisualizationTableDataProtocol) {
-        self.visualizationTableData = delegate
-    }
+    var delegate: VisualizationTableDataProtocol?
+    var model = QueueModel()
     
     private func add() {
-        guard let tableData = visualizationTableData else { return }
-        tableData.add(index: 0, value: "0", status: .highlighted)
-        changeStatus((0,0))
-        if tableData.DataSructureModelArray.count > 1 {
-            changeStatus((0, tableData.DataSructureModelArray.count - 1))
+        guard let tableData = delegate else { return }
+        let value = String(model.dataArray.count)
+        let element = CellDataModel(value, .highlighted)
+        if model.add(element) {
+            tableData.add(index: 0, value: element.defaultText, status: element.status)
         }
+        changeStatus(0)
     }
     
     private func delete() {
-        guard let tableData = visualizationTableData else { return }
-        let index = tableData.DataSructureModelArray.count - 1
-        if tableData.DataSructureModelArray.indices.contains(index) {
-            tableData.delete(index: index)
-        } else {
-            tableData.delete(index: 0)
-        }
-        if tableData.DataSructureModelArray.count > 0 {
-            changeStatus((0,index - 1))
+        guard let tableData = delegate else { return }
+        if model.canBeRemoved() {
+            changeStatus(model.dataArray.count - 1)
+            model.delete()
+            tableData.delete(index: model.dataArray.count)
         }
     }
     
-    private func changeStatus(_ indeces: (Int, Int)) {
-        guard var tableData = visualizationTableData else { return }
-        for index in 0..<tableData.DataSructureModelArray.count {
-            tableData.DataSructureModelArray[index].status = .common
+    private func changeStatus(_ highlight: Int) {
+        guard var tableData = delegate else { return }
+        for index in 0..<model.dataArray.count {
+            tableData.array[index].status = model.updateValues(index, highlight)
         }
-        tableData.DataSructureModelArray[indeces.0].status = .highlighted
-        tableData.DataSructureModelArray[indeces.1].status = .highlighted
         tableData.updateTable()
     }
     
     func createMenu() -> [MenuType] {
         var arrayButtons: Array<MenuType> = []
-        arrayButtons.append(MenuType.button(title: "+") {
-            self.add()
-        })
-        arrayButtons.append(MenuType.button(title: "-") {
-            self.delete()
-        })
+        arrayButtons.append(MenuType.button(title: "+") { self.add() })
+        arrayButtons.append(MenuType.button(title: "-") { self.delete() })
         return arrayButtons
     }
 }

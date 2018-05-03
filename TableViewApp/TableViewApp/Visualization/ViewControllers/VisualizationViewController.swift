@@ -10,8 +10,6 @@ import UIKit
 
 class VisualizationViewController: UIViewController, UITextFieldDelegate {
     
-    var dataStructureTitle: String?
-    
     var tableData: VisualizationTableDataProtocol?
     var controlManager: ControlManagerProtocol!
     var adapter: AdapterProtocol = Adapter()
@@ -28,7 +26,7 @@ class VisualizationViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         guard let table = tableData else { return }
-        controlManager.set(delegate: table)
+        controlManager.delegate = table
         adapter.setUpControllers(by: controlManager, in: buttonsStackView, and: allControllersStackView)
     }
 }

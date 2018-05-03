@@ -89,11 +89,21 @@ extension UIButton {
     }
 }
 
-extension CellDataModel: Equatable {}
+extension CellDataModel: Equatable {
 
-func ==(lhs: CellDataModel, rhs: CellDataModel) -> Bool {
-    let areEqual = lhs.value == rhs.value
+    static func ==(lhs: CellDataModel, rhs: CellDataModel) -> Bool {
+        let areEqual = (lhs.value == rhs.value) || (((lhs.value != rhs.value) && (lhs.key == rhs.key)) || ((lhs.value == rhs.value) && (lhs.key == rhs.key)))
+        return areEqual
+    }
     
-    return areEqual
+    static func <(lhs: CellDataModel, rhs: CellDataModel) -> Bool {
+        let isSmaller = lhs.priority < rhs.priority
+        return isSmaller
+    }
+    
+    static func >(lhs: CellDataModel, rhs: CellDataModel) -> Bool {
+        let isBigger = lhs.priority > rhs.priority
+        return isBigger
+    }
 }
 

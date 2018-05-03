@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum DataStructureType {
     case stack
@@ -21,7 +22,7 @@ enum DataStructureType {
 
 enum MenuType {
     case button(title: String, action: ()->() )
-    case textField(placeholder: String, action: (String)->() )
+    case textField(placeholder: String, keyboard: UIKeyboardType, action: (String)->() )
     case stateSwitch(action: (Bool)->())
 }
 

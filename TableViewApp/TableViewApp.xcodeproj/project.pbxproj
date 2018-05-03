@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		36140E26208F4338003259F6 /* VisualizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36140E25208F4338003259F6 /* VisualizationViewController.swift */; };
 		36140E28208F4821003259F6 /* VisualizationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36140E27208F4821003259F6 /* VisualizationTableViewController.swift */; };
+		3631717D209B179F001E4AC1 /* StackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3631717C209B179F001E4AC1 /* StackModel.swift */; };
+		3631717F209B17AC001E4AC1 /* QueueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3631717E209B17AC001E4AC1 /* QueueModel.swift */; };
+		36317181209B17C7001E4AC1 /* DequeueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36317180209B17C7001E4AC1 /* DequeueModel.swift */; };
+		36317183209B17DD001E4AC1 /* PriorityQueueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36317182209B17DD001E4AC1 /* PriorityQueueModel.swift */; };
+		36317185209B17ED001E4AC1 /* SetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36317184209B17ED001E4AC1 /* SetModel.swift */; };
+		36317187209B17FB001E4AC1 /* MultiSetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36317186209B17FB001E4AC1 /* MultiSetModel.swift */; };
+		36317189209B1807001E4AC1 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36317188209B1807001E4AC1 /* ListModel.swift */; };
+		3631718B209B1818001E4AC1 /* DictionaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3631718A209B1818001E4AC1 /* DictionaryModel.swift */; };
 		3647196E2096F72E00A42C5B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647196D2096F72E00A42C5B /* CustomTextField.swift */; };
 		3647197020973A4800A42C5B /* MultiSetCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647196F20973A4800A42C5B /* MultiSetCM.swift */; };
 		3647197220975CE100A42C5B /* DequeueCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647197120975CE100A42C5B /* DequeueCM.swift */; };
@@ -31,6 +39,7 @@
 		367ED51B208A22C900E93FE1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367ED51A208A22C900E93FE1 /* WebViewController.swift */; };
 		367ED51D208A22D900E93FE1 /* WKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367ED51C208A22D900E93FE1 /* WKViewController.swift */; };
 		367ED51F208A22F200E93FE1 /* SafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367ED51E208A22F200E93FE1 /* SafariViewController.swift */; };
+		36A7473E2099AE3B00AEA2DE /* VisualizationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A7473D2099AE3B00AEA2DE /* VisualizationDataModel.swift */; };
 		36BAFFCA208E2BBD00F6A7F1 /* BrowserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BAFFC9208E2BBD00F6A7F1 /* BrowserProtocol.swift */; };
 		36ECFACD20933EEA002BAACD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ECFACC20933EEA002BAACD /* Extensions.swift */; };
 		36ECFAEF20936D8F002BAACD /* Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ECFAEE20936D8F002BAACD /* Adapter.swift */; };
@@ -51,6 +60,14 @@
 /* Begin PBXFileReference section */
 		36140E25208F4338003259F6 /* VisualizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizationViewController.swift; sourceTree = "<group>"; };
 		36140E27208F4821003259F6 /* VisualizationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizationTableViewController.swift; sourceTree = "<group>"; };
+		3631717C209B179F001E4AC1 /* StackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackModel.swift; sourceTree = "<group>"; };
+		3631717E209B17AC001E4AC1 /* QueueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueModel.swift; sourceTree = "<group>"; };
+		36317180209B17C7001E4AC1 /* DequeueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DequeueModel.swift; sourceTree = "<group>"; };
+		36317182209B17DD001E4AC1 /* PriorityQueueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityQueueModel.swift; sourceTree = "<group>"; };
+		36317184209B17ED001E4AC1 /* SetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetModel.swift; sourceTree = "<group>"; };
+		36317186209B17FB001E4AC1 /* MultiSetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSetModel.swift; sourceTree = "<group>"; };
+		36317188209B1807001E4AC1 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
+		3631718A209B1818001E4AC1 /* DictionaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryModel.swift; sourceTree = "<group>"; };
 		3647196D2096F72E00A42C5B /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		3647196F20973A4800A42C5B /* MultiSetCM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSetCM.swift; sourceTree = "<group>"; };
 		3647197120975CE100A42C5B /* DequeueCM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DequeueCM.swift; sourceTree = "<group>"; };
@@ -75,6 +92,7 @@
 		367ED51A208A22C900E93FE1 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		367ED51C208A22D900E93FE1 /* WKViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKViewController.swift; sourceTree = "<group>"; };
 		367ED51E208A22F200E93FE1 /* SafariViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariViewController.swift; sourceTree = "<group>"; };
+		36A7473D2099AE3B00AEA2DE /* VisualizationDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizationDataModel.swift; sourceTree = "<group>"; };
 		36BAFFC9208E2BBD00F6A7F1 /* BrowserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserProtocol.swift; sourceTree = "<group>"; };
 		36ECFACC20933EEA002BAACD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		36ECFAEE20936D8F002BAACD /* Adapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adapter.swift; sourceTree = "<group>"; };
@@ -196,12 +214,12 @@
 			children = (
 				36ECFAFA20936EF7002BAACD /* StackCM.swift */,
 				36ECFAFC20936F1E002BAACD /* QueueCM.swift */,
+				3647197120975CE100A42C5B /* DequeueCM.swift */,
+				3647197520975D0B00A42C5B /* PriorityQueueCM.swift */,
 				36ECFB0220936FBB002BAACD /* SetCM.swift */,
 				3647196F20973A4800A42C5B /* MultiSetCM.swift */,
-				3647197120975CE100A42C5B /* DequeueCM.swift */,
-				3647197320975CF500A42C5B /* DictionaryCM.swift */,
-				3647197520975D0B00A42C5B /* PriorityQueueCM.swift */,
 				3647197720975D1700A42C5B /* ListCM.swift */,
+				3647197320975CF500A42C5B /* DictionaryCM.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -250,6 +268,7 @@
 				36140E25208F4338003259F6 /* VisualizationViewController.swift */,
 				36140E27208F4821003259F6 /* VisualizationTableViewController.swift */,
 				366AF37D2090989700D53188 /* VisualizationTableViewCell.swift */,
+				36A7473D2099AE3B00AEA2DE /* VisualizationDataModel.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -258,6 +277,14 @@
 			isa = PBXGroup;
 			children = (
 				36ECFB0620937850002BAACD /* CellModel.swift */,
+				3631717C209B179F001E4AC1 /* StackModel.swift */,
+				3631717E209B17AC001E4AC1 /* QueueModel.swift */,
+				36317180209B17C7001E4AC1 /* DequeueModel.swift */,
+				36317182209B17DD001E4AC1 /* PriorityQueueModel.swift */,
+				36317184209B17ED001E4AC1 /* SetModel.swift */,
+				36317186209B17FB001E4AC1 /* MultiSetModel.swift */,
+				36317188209B1807001E4AC1 /* ListModel.swift */,
+				3631718A209B1818001E4AC1 /* DictionaryModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -343,29 +370,38 @@
 				365518192080B50200934D6F /* ModelProtocol.swift in Sources */,
 				36140E26208F4338003259F6 /* VisualizationViewController.swift in Sources */,
 				3647197220975CE100A42C5B /* DequeueCM.swift in Sources */,
+				3631717D209B179F001E4AC1 /* StackModel.swift in Sources */,
 				36551812207F69BC00934D6F /* CustomTableViewCell.swift in Sources */,
 				3647197420975CF500A42C5B /* DictionaryCM.swift in Sources */,
 				367ED51B208A22C900E93FE1 /* WebViewController.swift in Sources */,
 				3651C2F42084C0E4003D24AE /* DataStructureModel.swift in Sources */,
 				366AF37E2090989700D53188 /* VisualizationTableViewCell.swift in Sources */,
+				36317185209B17ED001E4AC1 /* SetModel.swift in Sources */,
 				36ECFB0720937850002BAACD /* CellModel.swift in Sources */,
 				3647197620975D0B00A42C5B /* PriorityQueueCM.swift in Sources */,
 				36140E28208F4821003259F6 /* VisualizationTableViewController.swift in Sources */,
 				3647196E2096F72E00A42C5B /* CustomTextField.swift in Sources */,
+				36317183209B17DD001E4AC1 /* PriorityQueueModel.swift in Sources */,
+				3631717F209B17AC001E4AC1 /* QueueModel.swift in Sources */,
+				36A7473E2099AE3B00AEA2DE /* VisualizationDataModel.swift in Sources */,
 				36ECFAFB20936EF7002BAACD /* StackCM.swift in Sources */,
 				36BAFFCA208E2BBD00F6A7F1 /* BrowserProtocol.swift in Sources */,
 				3651C2F12084BE3C003D24AE /* CellProtocol.swift in Sources */,
+				36317187209B17FB001E4AC1 /* MultiSetModel.swift in Sources */,
 				36ECFAF320936E01002BAACD /* CustomButton.swift in Sources */,
 				36ECFAF920936EAE002BAACD /* CMProtocol.swift in Sources */,
 				36ECFAF720936E7F002BAACD /* CMFactoryProtocol.swift in Sources */,
+				36317189209B1807001E4AC1 /* ListModel.swift in Sources */,
 				367ED51F208A22F200E93FE1 /* SafariViewController.swift in Sources */,
 				365517FE207F647E00934D6F /* AppDelegate.swift in Sources */,
+				3631718B209B1818001E4AC1 /* DictionaryModel.swift in Sources */,
 				3647197820975D1700A42C5B /* ListCM.swift in Sources */,
 				3647197020973A4800A42C5B /* MultiSetCM.swift in Sources */,
 				36551814207F9BE100934D6F /* DescriptionViewController.swift in Sources */,
 				36ECFAFD20936F1E002BAACD /* QueueCM.swift in Sources */,
 				36ECFB052093744A002BAACD /* Enumarations.swift in Sources */,
 				36ECFAF120936DCA002BAACD /* AdapterProtocol.swift in Sources */,
+				36317181209B17C7001E4AC1 /* DequeueModel.swift in Sources */,
 				36ECFB0320936FBB002BAACD /* SetCM.swift in Sources */,
 				36551810207F650B00934D6F /* TableViewController.swift in Sources */,
 				36ECFAFF20936F60002BAACD /* VisualizationTableCellProtocol.swift in Sources */,

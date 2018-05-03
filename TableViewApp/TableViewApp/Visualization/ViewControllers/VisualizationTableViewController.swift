@@ -11,21 +11,22 @@ import UIKit
 class VisualizationTableViewController: UITableViewController, VisualizationTableDataProtocol {
     
     var DataSructureModelArray: [CellDataModel] = []
+    var array: [(text: String, status: Status)] = []
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DataSructureModelArray.count
+        return array.count
     }
     
     func add(index: Int, value: String, status: Status) {
-        DataSructureModelArray.insert(CellDataModel(value, status), at: index)
+        array.insert((value, status), at: index)
         tableView.insertRows(at: [IndexPath(row: index, section: 0)], with: .right)
         updateTable()
     }
     
     func delete(index: Int) {
-        if !DataSructureModelArray.indices.contains(index) { return
+        if !array.indices.contains(index) { return
         } else {
-            DataSructureModelArray.remove(at: index)
+            array.remove(at: index)
             tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .left)
         }
         updateTable()
@@ -33,22 +34,18 @@ class VisualizationTableViewController: UITableViewController, VisualizationTabl
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "visualizationCell", for: indexPath) as? VisualizationTableViewCell else { return UITableViewCell() }
-            cell.setTitle(DataSructureModelArray[indexPath.row].value)
+        cell.setTitle(array[indexPath.row].text)
+        print(array)
         return cell
     }
     
     func updateTable() {
-        for index in 0..<DataSructureModelArray.count {
+        for index in 0..<array.count {
             guard let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0)) as? VisualizationTableViewCell else { return }
-            if DataSructureModelArray[index].helperValue == 1 {
-                cell.setTitle(DataSructureModelArray[index].value)
-            } else {
-                guard let repiats = DataSructureModelArray[index].helperValue else { return }
-                cell.setTitle(DataSructureModelArray[index].value + " - " + String(repiats) + " times")
-            }
-            if DataSructureModelArray[index].status == .highlighted {
+            cell.setTitle(array[index].text)
+            if array[index].status == .highlighted {
                 tableView.cellForRow(at: IndexPath(row: index, section: 0))?.setColor(.red)
-            } else if DataSructureModelArray[index].status == .common {
+            } else if array[index].status == .common {
                 tableView.cellForRow(at: IndexPath(row: index, section: 0))?.setColor(.green)
             }
         }
