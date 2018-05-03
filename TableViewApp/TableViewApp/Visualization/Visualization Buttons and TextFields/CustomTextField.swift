@@ -15,6 +15,7 @@ class CustomTextField: UITextField, UITextFieldDelegate {
     init(placeholder: String, keyboard: UIKeyboardType, action: ( (String)->() )? = nil) {
         super.init(frame: .zero)
         self.setPlaceholder(placeholder)
+        self.borderStyle = .roundedRect
         self.action = action
         self.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         self.heightAnchor.constraint(equalToConstant: 64).isActive = true

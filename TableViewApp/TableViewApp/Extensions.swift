@@ -19,23 +19,14 @@ extension UIViewController {
     }
 }
 
-extension VisualizationTableViewController {
-    
-    func createCell(_ indexPath: IndexPath, _ color: UIColor) {
-        guard let cell = self.tableView.cellForRow(at: indexPath) as? VisualizationTableViewCell else { return }
-        cell.contentView.setBackgroundColor(color)
-    }
-}
-
 extension UITextField {
     func setPlaceholder(_ placeholder: String) {
         self.placeholder = placeholder
-        self.borderStyle = .roundedRect
     }
 }
 
 extension UIView {
-    func opacityGradient() {
+    func createOpacityGradient() {
         let gradient = CAGradientLayer()
         gradient.frame = self.bounds
         gradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor, UIColor.black.cgColor, UIColor.black.cgColor]
@@ -71,17 +62,13 @@ extension UITableViewCell {
 extension UIButton {
     func setTitle(_ title: String) {
         self.setTitle(title, for: .normal)
-        self.setTitle(title, for: .disabled)
-        self.setTitle(title, for: .focused)
     }
     
     func setTitleColor(_ color: UIColor) {
         self.setTitleColor(color, for: .normal)
-        self.setTitleColor(color, for: .disabled)
-        self.setTitleColor(color, for: .focused)
     }
     
-    func createButton(named title: String) -> UIButton {
+    func customizeWith(name title: String) -> UIButton {
         self.backgroundColor = UIColor.white
         self.setTitle(title)
         self.setTitleColor(UIColor.blue)

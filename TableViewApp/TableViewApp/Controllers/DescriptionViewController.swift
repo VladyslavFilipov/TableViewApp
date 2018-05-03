@@ -30,9 +30,9 @@ class DescriptionViewController: UIViewController {
         buttomAnhcoreOfStackView = allButtonsStackView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20)
         copyDescriptionViewBottomConstraintConstant = buttomConstraint.constant
         hiddenButtonsStackView.isHidden = true
-        descriptionNavigationBar.title = cellEntity.getTitle
-        descriptionLabel.text = cellEntity.getDescr
-        fadingView.opacityGradient()
+        descriptionNavigationBar.title = cellEntity.title
+        descriptionLabel.text = cellEntity.descr
+        fadingView.createOpacityGradient()
     }
    
     @IBAction func wikiLinkButtonPressed(_ sender: Any) {
@@ -61,7 +61,7 @@ class DescriptionViewController: UIViewController {
         let alertAction = UIAlertAction(title: title, style: .default, handler: {
             _ in
             guard var controller = storyboard.instantiateViewController(withIdentifier: idController) as? BrowserProtocol else { return }
-            controller.linkOnWiki = self.cellEntity.getLink
+            controller.linkOnWiki = self.cellEntity.url
             
             guard let viewController = controller as? UIViewController else {
                 return
@@ -101,7 +101,7 @@ class DescriptionViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         guard let vizualizationController = storyboard.instantiateViewController(withIdentifier: "VizualizationViewController") as? VisualizationViewController else { return }
-        vizualizationController.controlManager = ControlManagerFactory.getControlManager(byType: cellEntity.getType)
+        vizualizationController.controlManager = ControlManagerFactory.getControlManager(byType: cellEntity.type)
         vizualizationController.title = self.title
         self.navigationController?.pushViewController(vizualizationController, animated: true)
     }

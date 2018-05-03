@@ -9,8 +9,8 @@
 import Foundation
 
 protocol CellProtocol {
-    var getTitle: String { get }
-    var getDescr: String { get }
-    var getType: DataStructureType { get }
-    var getLink: URL { get }
+    var title: String { get }
+    var descr: String { get }
+    var type: DataStructureType { get }
+    var url: URL { get }
 }
