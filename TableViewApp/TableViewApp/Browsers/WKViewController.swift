@@ -38,5 +38,4 @@ class WKViewController: UIViewController, WKUIDelegate, UIScrollViewDelegate, Br
         self.navigationController?.setNavigationBarHidden(hide, animated: true)
         self.browserToolBar.isHidden = hide
     }
-    
 }

@@ -18,25 +18,21 @@ class DictionaryManager: ControlManagerProtocol {
     
     private func add() {
         guard let tableData = delegate else { return }
-        guard let value = textFieldText else {return}
-        let element = CellDataModel(value, textFieldKey)
+        guard let value = textFieldText else { return }
+        guard let key = textFieldKey else { return }
+        if value == "" { return }
+        let element = CellDataModel(value, key)
         if model.add(element) {
             tableData.add(index: 0, value: element.dictionaryText, status: element.status)
         }
-//        else {
-//            model.dataArray[model.dataArray.count - 1].value = value
-//            data.array[0].text = model.dataArray[model.dataArray.count - 1].text
-//            data.updateTable()
-//        }
-        changeStatus(textFieldKey)
+        changeStatus(setUpIndex())
     }
     
     private func delete() {
         guard let tableData = delegate else { return }
         guard let value = textFieldText else { return }
-        let key = textFieldKey
-        if model.contains(CellDataModel(value, key)) {
-            tableData.delete(index: model.delete(CellDataModel(value, key)))
+        if model.contains(CellDataModel(value, textFieldKey)) {
+            tableData.delete(index: model.delete(CellDataModel(value, textFieldKey)))
         }
     }
     
@@ -47,18 +43,26 @@ class DictionaryManager: ControlManagerProtocol {
     private func textFieldKeyDidChange(_ textFieldValue: String) {
         textFieldKey = textFieldValue
         if model.dataArray.count > 0 {
-            changeStatus(textFieldKey)
+            changeStatus(setUpIndex())
         }
     }
     
-    private func changeStatus(_ key: String?) {
+    private func changeStatus(_ highlight: Int?) {
         guard var tableData = delegate else { return }
-        guard let value = textFieldText else { return }
-        model.updateValues(CellDataModel(value, key))
-        for index in 0..<model.dataArray.count {
-            tableData.array[index].status = model.dataArray[index].status
+        if model.dataArray.count > 0 {
+            for index in 0..<model.dataArray.count {
+                tableData.array[index].status = model.updateValues(index, highlight)
+                tableData.array[index].text = model.dataArray[index].dictionaryText
+            }
         }
         tableData.updateTable()
+    }
+    
+    private func setUpIndex() -> Int? {
+        guard let key = textFieldKey else { return nil }
+        guard let value = textFieldText else { return nil }
+        if model.dataArray.contains(CellDataModel(value, key)) { return model.dataArray.index(of: CellDataModel(value, key)) }
+        return nil
     }
     
     func createMenu() -> [MenuType] {

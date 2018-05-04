@@ -39,5 +39,3 @@ class WebViewController: UIViewController, UIScrollViewDelegate, BrowserProtocol
         self.browserToolBar.isHidden = hide
     }
 }
-
-

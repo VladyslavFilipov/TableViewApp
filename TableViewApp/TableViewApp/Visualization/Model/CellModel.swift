@@ -28,10 +28,3 @@ struct CellDataModel {
     }
 }
 
-extension CellDataModel {
-    var defaultText: String { return value }
-    var priorityText: String { return value + " priority - " + String(priority) }
-    var repiatText: String { return value + " repiats - " + String(repiats) + " time(s)"}
-    var dictionaryText: String { return value + " for key - " + key! }
-}
-

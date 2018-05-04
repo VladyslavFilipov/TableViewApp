@@ -76,11 +76,14 @@ extension UIButton {
     }
 }
 
-extension CellDataModel: Equatable {
+extension CellDataModel: Equatable, Comparable {
 
     static func ==(lhs: CellDataModel, rhs: CellDataModel) -> Bool {
-        let areEqual = (lhs.value == rhs.value) || (((lhs.value != rhs.value) && (lhs.key == rhs.key)) || ((lhs.value == rhs.value) && (lhs.key == rhs.key)))
-        return areEqual
+        if lhs.key == nil || rhs.key == nil {
+            return (lhs.value == rhs.value)
+        } else {
+            return (lhs.key == rhs.key)
+        }
     }
     
     static func <(lhs: CellDataModel, rhs: CellDataModel) -> Bool {
@@ -92,5 +95,10 @@ extension CellDataModel: Equatable {
         let isBigger = lhs.priority > rhs.priority
         return isBigger
     }
+
+    var defaultText: String { return value }
+    var priorityText: String { return value + " priority - " + String(priority) }
+    var repiatText: String { return value + " repiats - " + String(repiats) + " time(s)"}
+    var dictionaryText: String { return value + " for key - " + key! }
 }
 

@@ -41,7 +41,7 @@ class QueueManager: ControlManagerProtocol {
     }
     
     func createMenu() -> [MenuType] {
-        var arrayButtons: Array<MenuType> = []
+        var arrayButtons: [MenuType] = []
         arrayButtons.append(MenuType.button(title: "+") { self.add() })
         arrayButtons.append(MenuType.button(title: "-") { self.delete() })
         return arrayButtons

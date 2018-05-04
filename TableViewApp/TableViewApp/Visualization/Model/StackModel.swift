@@ -10,8 +10,6 @@ import Foundation
 
 struct StackModel {
     
-    var delegate: VisualizationTableDataProtocol?
-    
     var dataArray: [CellDataModel] = []
     
     mutating func add(_ model: CellDataModel) -> Bool {
@@ -19,17 +17,19 @@ struct StackModel {
         return true
     }
     
-    mutating func delete() -> Bool {
-        if dataArray.count > 0 {
-            dataArray.remove(at: 0)
-            return true
-        }
+    func canBeRemoved() -> Bool {
+        if dataArray.count > 0 { return true }
         return false
     }
     
-    mutating func updateValues(_ index: Int) -> Status {
+    mutating func delete() {
+        dataArray.removeFirst()
+    }
+    
+    mutating func updateValues(_ index: Int, _ highlight: Int?) -> Status {
         dataArray[index].status = .common
-        dataArray[0].status = .highlighted
+        guard let highlight = highlight else { return .common }
+        dataArray[highlight].status = .highlighted
         return dataArray[index].status
     }
 }

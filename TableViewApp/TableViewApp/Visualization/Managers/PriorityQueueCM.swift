@@ -21,7 +21,7 @@ class PriorityQueueManager: ControlManagerProtocol {
         let value = String(model.dataArray.count)
         let element = CellDataModel(value, .highlighted, priority)
         if model.add(element) {
-            tableData.add(index: model.dataArray.index(of: element)!, value: element.priorityText, status: element.status)
+            tableData.add(index: 0, value: element.priorityText, status: element.status)
         }
         changeStatus(0)
     }
@@ -40,6 +40,7 @@ class PriorityQueueManager: ControlManagerProtocol {
         for index in 0..<model.dataArray.count {
             tableData.array[index].status = model.updateValues(index, highlight)
         }
+        updateValues()
         tableData.updateTable()
     }
     

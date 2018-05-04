@@ -10,54 +10,49 @@ import Foundation
 
 class SetManager: ControlManagerProtocol {
     
-    var textFieldText = ""
+    var textFieldText: String?
     
     var delegate: VisualizationTableDataProtocol?
+    var model = SetModel()
     
     private func add() {
-//        guard var tableData = delegate else { return }
-//        print(tableData.DataSructureModelArray)
-//        if tableData.DataSructureModelArray.count == 0 && !textFieldText.isEmpty {
-//            tableData.add(index: tableData.DataSructureModelArray.count, value: textFieldText, status: .highlighted)
-//        } else if tableData.DataSructureModelArray.count > 0 {
-//            if  !tableData.DataSructureModelArray.contains(CellDataModel(textFieldText)) {
-//                tableData.add(index: tableData.DataSructureModelArray.count, value: textFieldText, status: .highlighted)
-//                changeStatus(tableData.DataSructureModelArray.count - 1)
-//            }
-//        }
-//        tableData.updateTable()
+        guard let tableData = delegate else { return }
+        guard let value = textFieldText else { return }
+        if value == "" { return }
+        let element = CellDataModel(value, .highlighted)
+        if model.add(element) {
+            tableData.add(index: 0, value: element.defaultText, status: element.status)
+        }
+        changeStatus(model.dataArray.index(of: element))
     }
     
     private func delete() {
-//        guard var tableData = delegate else { return }
-//        print(textFieldText)
-//        if tableData.DataSructureModelArray.count > 0 {
-//            if  tableData.DataSructureModelArray.contains(CellDataModel(textFieldText))  {
-//                let index = tableData.DataSructureModelArray.index(of: CellDataModel(textFieldText, .highlighted))!
-//                tableData.delete(index: index)
-//            }
-//        }
-//        tableData.updateTable()
+        guard let tableData = delegate else { return }
+        guard let text = textFieldText else { return }
+        let element = CellDataModel(text, .highlighted)
+        if model.canBeRemoved(element) {
+            changeStatus(model.dataArray.index(of: element))
+            tableData.delete(index: model.delete(element))
+        }
     }
     
-    private func textFieldDidChange(_ textFieldValue: String) {
+    private func changeStatus(_ highlight: Int?) {
         guard var tableData = delegate else { return }
-        textFieldText = textFieldValue
-        for index in 0..<tableData.DataSructureModelArray.count {
-            tableData.DataSructureModelArray[index].status = .common
-            if tableData.DataSructureModelArray[index].value == textFieldText {
-                tableData.DataSructureModelArray[index].status = .highlighted
-            }
+        for index in 0..<model.dataArray.count {
+            tableData.array[index].status = model.updateValues(index, highlight)
         }
         tableData.updateTable()
     }
     
-    private func changeStatus(_ index: Int) {
-        guard var tableData = delegate else { return }
-        for index in 0..<tableData.DataSructureModelArray.count {
-            tableData.DataSructureModelArray[index].status = .common
+    private func textFieldDidChange(_ textFieldValue: String) {
+        guard let tableData = delegate else { return }
+        textFieldText = textFieldValue
+        guard let text = textFieldText else { return }
+        let element = CellDataModel(text, .highlighted)
+        if model.dataArray.count > 0 {
+            changeStatus(model.dataArray.index(of: element))
         }
-        tableData.DataSructureModelArray[index].status = .highlighted
+        tableData.updateTable()
     }
     
     func createMenu() -> [MenuType] {

@@ -18,16 +18,13 @@ struct QueueModel {
     }
     
     func canBeRemoved() -> Bool {
-        if dataArray.count > 0 {
-            return true
-        }
+        if dataArray.count > 0 { return true }
         return false
     }
     
     mutating func delete() {
         dataArray.removeLast()
     }
-    
     
     mutating func updateValues(_ index: Int, _ highlight: Int) -> Status {
         dataArray[index].status = .common

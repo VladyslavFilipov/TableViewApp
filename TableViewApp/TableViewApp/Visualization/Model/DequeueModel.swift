@@ -19,9 +19,7 @@ struct DequeueModel {
     }
     
     func canBeRemoved() -> Bool {
-        if dataArray.count > 0 {
-            return true
-        }
+        if dataArray.count > 0 { return true }
         return false
     }
     
@@ -30,11 +28,8 @@ struct DequeueModel {
     }
     
     mutating func changeState(_ itsChanged: Bool) {
-        if itsChanged {
-            indeces = (0 ,dataArray.count - 1)
-        } else {
-            indeces = (dataArray.count, 0)
-        }
+        if itsChanged { indeces = (0 ,dataArray.count - 1) }
+        else { indeces = (dataArray.count, 0) }
     }
     
     mutating func updateValues(_ index: Int, _ highlight: Int) -> Status {

@@ -10,30 +10,41 @@ import Foundation
 
 class ListManager: ControlManagerProtocol {
     
-    var textFieldText = ""
-    var textFieldIndex = ""
+    var textFieldText: String?
+    var textFieldIndex: String?
     
     var delegate: VisualizationTableDataProtocol?
+    var model = ListModel()
     
     private func add() {
-//        guard var tableData = delegate else { return }
-//        let index = Int(textFieldIndex) ?? 0
-//        if !textFieldText.isEmpty && tableData.DataSructureModelArray.indices.contains(index) {
-//            tableData.DataSructureModelArray[index].text = textFieldText
-//            changeStatus(index)
-//        } else if !textFieldText.isEmpty {
-//            tableData.add(index: tableData.DataSructureModelArray.count, value: textFieldText, status: .highlighted)
-//            changeStatus(tableData.DataSructureModelArray.count - 1)
-//        }
-//        tableData.updateTable()
+        guard let tableData = delegate else { return }
+        guard let text = textFieldText else { return }
+        let index = setUpIndex()
+        let element = CellDataModel(text, .highlighted)
+        if model.add(element, index) {
+            guard let index = index else { return }
+            tableData.add(index: index, value: element.defaultText, status: element.status)
+        }
+        changeStatus(index)
     }
     
     private func delete() {
-        guard var tableData = delegate else { return }
-        let index = Int(textFieldIndex) ?? 0
-        if tableData.DataSructureModelArray.indices.contains(index) && tableData.DataSructureModelArray.count > 0 {
-            tableData.delete(index: index)
+        guard let tableData = delegate else { return }
+        let index = setUpIndex()
+        if model.canBeRemoved(index) {
             changeStatus(index)
+            tableData.delete(index: model.delete(index))
+        }
+        changeStatus(index)
+    }
+    
+    private func changeStatus(_ highlight: Int?) {
+        guard var tableData = delegate else { return }
+        if model.dataArray.count > 0 {
+            for index in 0..<model.dataArray.count {
+                tableData.array[index].status = model.updateValues(index, highlight)
+                tableData.array[index].text = model.dataArray[index].defaultText
+            }
         }
         tableData.updateTable()
     }
@@ -43,22 +54,15 @@ class ListManager: ControlManagerProtocol {
     }
     
     private func textFieldIndexDidChange(_ textFieldValue: String) {
-        guard let tableData = delegate else { return }
         textFieldIndex = textFieldValue
-        let index = Int(textFieldIndex) ?? 0
-        changeStatus(index)
-        tableData.updateTable()
+        changeStatus(setUpIndex())
     }
     
-    private func changeStatus(_ index: Int) {
-        guard var tableData = delegate else { return }
-        for index in 0..<tableData.DataSructureModelArray.count {
-            tableData.DataSructureModelArray[index].status = .common
-        }
-        let index = Int(textFieldIndex) ?? 0
-        if tableData.DataSructureModelArray.count > 0 && tableData.DataSructureModelArray.indices.contains(index) {
-            tableData.DataSructureModelArray[index].status = .highlighted
-        }
+    private func setUpIndex() -> Int? {
+        guard let indexText = textFieldIndex else { return nil }
+        guard let index = Int(indexText) else { return nil }
+        if index > model.dataArray.count { return nil }
+        return index
     }
     
     func createMenu() -> [MenuType] {

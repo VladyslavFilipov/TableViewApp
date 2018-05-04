@@ -20,29 +20,28 @@ class StackManager: ControlManagerProtocol {
         if model.add(element) {
             tableData.add(index: 0, value: element.defaultText, status: element.status)
         }
-        changeStatus()
+        changeStatus(0)
     }
     
     private func delete() {
         guard let tableData = delegate else { return }
-        if model.delete() {
+        if model.canBeRemoved() {
+            changeStatus(0)
+            model.delete()
             tableData.delete(index: 0)
-        }
-        if model.dataArray.count > 0 {
-            changeStatus()
         }
     }
     
-    private func changeStatus() {
+    private func changeStatus(_ highlight: Int?) {
         guard var tableData = delegate else { return }
         for index in 0..<model.dataArray.count {
-            tableData.array[index].status = model.updateValues(index)
+            tableData.array[index].status = model.updateValues(index, highlight)
         }
         tableData.updateTable()
     }
     
     func createMenu() -> [MenuType] {
-        var arrayButtons: Array<MenuType> = []
+        var arrayButtons: [MenuType] = []
         arrayButtons.append(MenuType.button(title: "+") { self.add() })
         arrayButtons.append(MenuType.button(title: "-") { self.delete() })
         return arrayButtons
