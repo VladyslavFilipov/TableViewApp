@@ -46,7 +46,7 @@ class ListManager: ControlManagerProtocol {
                 tableData.array[index].text = model.dataArray[index].defaultText
             }
         }
-        tableData.updateTable()
+        tableData.updateValuesAndColorWithFading(false)
     }
     
     private func textFieldTextDidChange(_ textFieldValue: String) {

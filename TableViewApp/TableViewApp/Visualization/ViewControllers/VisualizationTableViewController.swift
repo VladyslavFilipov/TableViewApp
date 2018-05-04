@@ -35,11 +35,14 @@ class VisualizationTableViewController: UITableViewController, VisualizationTabl
         return cell
     }
     
-    func updateTable() {
+    func updateValuesAndColorWithFading(_ fadingOn: Bool) {
         for index in 0..<array.count {
             guard let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0)) as? VisualizationTableViewCell else { return }
             cell.setTitle(array[index].text)
-            if array[index].status == .highlighted { tableView.cellForRow(at: IndexPath(row: index, section: 0))?.setColor(.red) }
+            if array[index].status == .highlighted {
+                tableView.cellForRow(at: IndexPath(row: index, section: 0))?.setColor(.red)
+                if fadingOn { tableView.cellForRow(at: IndexPath(row: index, section: 0))?.beginFade(.green) }
+            }
             else if array[index].status == .common { tableView.cellForRow(at: IndexPath(row: index, section: 0))?.setColor(.green) }
         }
     }

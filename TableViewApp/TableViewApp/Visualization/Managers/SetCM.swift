@@ -41,18 +41,16 @@ class SetManager: ControlManagerProtocol {
         for index in 0..<model.dataArray.count {
             tableData.array[index].status = model.updateValues(index, highlight)
         }
-        tableData.updateTable()
+        tableData.updateValuesAndColorWithFading(false)
     }
     
     private func textFieldDidChange(_ textFieldValue: String) {
-        guard let tableData = delegate else { return }
         textFieldText = textFieldValue
         guard let text = textFieldText else { return }
         let element = CellDataModel(text, .highlighted)
         if model.dataArray.count > 0 {
             changeStatus(model.dataArray.index(of: element))
         }
-        tableData.updateTable()
     }
     
     func createMenu() -> [MenuType] {

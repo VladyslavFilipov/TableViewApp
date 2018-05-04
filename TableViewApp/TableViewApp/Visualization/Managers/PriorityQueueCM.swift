@@ -41,7 +41,7 @@ class PriorityQueueManager: ControlManagerProtocol {
             tableData.array[index].status = model.updateValues(index, highlight)
         }
         updateValues()
-        tableData.updateTable()
+        tableData.updateValuesAndColorWithFading(true)
     }
     
     private func updateValues() {

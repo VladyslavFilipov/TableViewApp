@@ -43,18 +43,16 @@ class MultiSetManager: ControlManagerProtocol {
             tableData.array[index].status = model.updateValues(index, highlight)
             tableData.array[index].text = model.dataArray[index].repiatText
         }
-        tableData.updateTable()
+        tableData.updateValuesAndColorWithFading(false)
     }
     
     private func textFieldDidChange(_ textFieldValue: String) {
-        guard let tableData = delegate else { return }
         textFieldText = textFieldValue
         guard let text = textFieldText else { return }
         let element = CellDataModel(text, .highlighted)
         if model.dataArray.count > 0 {
             changeStatus(model.dataArray.index(of: element))
         }
-        tableData.updateTable()
     }
     
     func createMenu() -> [MenuType] {

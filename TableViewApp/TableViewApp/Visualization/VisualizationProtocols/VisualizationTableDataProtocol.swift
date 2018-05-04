@@ -16,5 +16,5 @@ protocol VisualizationTableDataProtocol {
     
     func delete(index: Int)
     
-    func updateTable()
+    func updateValuesAndColorWithFading(_ fadingOn: Bool)
 }

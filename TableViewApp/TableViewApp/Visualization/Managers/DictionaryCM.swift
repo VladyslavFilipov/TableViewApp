@@ -55,7 +55,7 @@ class DictionaryManager: ControlManagerProtocol {
                 tableData.array[index].text = model.dataArray[index].dictionaryText
             }
         }
-        tableData.updateTable()
+        tableData.updateValuesAndColorWithFading(false)
     }
     
     private func setUpIndex() -> Int? {

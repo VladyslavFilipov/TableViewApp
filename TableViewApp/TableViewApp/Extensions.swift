@@ -57,6 +57,12 @@ extension UITableViewCell {
     func setColor(_ color: UIColor) {
         self.contentView.backgroundColor = color
     }
+    
+    func beginFade(_ color: UIColor) {
+        UIView.animate(withDuration: 1, animations: {
+            self.contentView.setBackgroundColor(color)
+        }, completion: nil)
+    }
 }
 
 extension UIButton {

@@ -40,7 +40,7 @@ class DequeueManager: ControlManagerProtocol {
         for index in 0..<model.dataArray.count {
             tableData.array[index].status = model.updateValues(index, highlight)
         }
-        tableData.updateTable()
+        tableData.updateValuesAndColorWithFading(true)
     }
     
     private func changeState(_ isItOn: Bool = true) {
