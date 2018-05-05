@@ -11,25 +11,25 @@ import UIKit
 
 struct DataStructureModel: CellProtocol  {
     
-    private var title: String
-    private var descr: String
+    private var name: String
+    private var definition: String
     private var link: String
+    private var exemplar: DataStructureType
     
-    init(title: String, deskr: String, link: String) {
-        self.title = title
-        self.descr = deskr
+    init(title: String, deskr: String, link: String, type: DataStructureType) {
+        self.name = title
+        self.definition = deskr
         self.link = link
+        self.exemplar = type
     }
     
-    func getTitle() -> String {
-        return self.title
-    }
+    var title: String { return self.name }
     
-    func getDescr() -> String {
-        return self.descr
-    }
+    var descr: String { return self.definition }
     
-    func getLink() -> URL {
+    var type: DataStructureType { return self.exemplar }
+    
+    var url: URL {
         guard let url = URL(string: self.link) else { return URL(string: "https://www.wikipedia.org")! }
         return url
     }

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 protocol BrowserProtocol {
     var linkOnWiki: URL? { get set }

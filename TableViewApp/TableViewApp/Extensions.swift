@@ -1,0 +1,110 @@
+//
+//  Extensions.swift
+//  TableViewApp
+//
+//  Created by Vladislav Filipov on 27.04.2018.
+//  Copyright © 2018 Vladislav Filipov. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+extension UIViewController {
+    func performSegueToReturnBack()  {
+        if let nav = self.navigationController {
+            nav.popViewController(animated: true)
+        } else {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+}
+
+extension UITextField {
+    func setPlaceholder(_ placeholder: String) {
+        self.placeholder = placeholder
+    }
+}
+
+extension UIView {
+    func createOpacityGradient() {
+        let gradient = CAGradientLayer()
+        gradient.frame = self.bounds
+        gradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor, UIColor.black.cgColor, UIColor.black.cgColor]
+        gradient.locations = [0, 1]
+        self.layer.mask = gradient
+    }
+    
+    func setBackgroundColor(_ color: UIColor) {
+        self.backgroundColor = color
+    }
+}
+
+extension UITableView {
+    func addCell(_ indexPath: IndexPath) {
+        self.beginUpdates()
+        self.insertRows(at: [indexPath], with: .right)
+        self.endUpdates()
+    }
+    
+    func deleteCell(_ indexPath: IndexPath) {
+        self.beginUpdates()
+        self.deleteRows(at: [indexPath], with: .left)
+        self.endUpdates()
+    }
+}
+
+extension UITableViewCell {
+    func setColor(_ color: UIColor) {
+        self.contentView.backgroundColor = color
+    }
+    
+    func beginFade(_ color: UIColor) {
+        UIView.animate(withDuration: 1, animations: {
+            self.contentView.setBackgroundColor(color)
+        }, completion: nil)
+    }
+}
+
+extension UIButton {
+    func setTitle(_ title: String) {
+        self.setTitle(title, for: .normal)
+    }
+    
+    func setTitleColor(_ color: UIColor) {
+        self.setTitleColor(color, for: .normal)
+    }
+    
+    func customizeWith(name title: String) -> UIButton {
+        self.backgroundColor = UIColor.white
+        self.setTitle(title)
+        self.setTitleColor(UIColor.blue)
+        return self
+    }
+}
+
+extension CellDataModel: Equatable, Comparable {
+
+    static func ==(lhs: CellDataModel, rhs: CellDataModel) -> Bool {
+        if lhs.key == nil || rhs.key == nil {
+            return (lhs.value == rhs.value)
+        } else {
+            return (lhs.key == rhs.key)
+        }
+    }
+    
+    static func <(lhs: CellDataModel, rhs: CellDataModel) -> Bool {
+        let isSmaller = lhs.priority < rhs.priority
+        return isSmaller
+    }
+    
+    static func >(lhs: CellDataModel, rhs: CellDataModel) -> Bool {
+        let isBigger = lhs.priority > rhs.priority
+        return isBigger
+    }
+
+    var defaultText: String { return value }
+    var priorityText: String { return value + " priority - " + String(priority) }
+    var repiatText: String { return value + " repiats - " + String(repiats) + " time(s)"}
+    var dictionaryText: String { return value + " for key - " + key! }
+}
+

@@ -20,7 +20,7 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FirstTypeCell", for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
         let dataStructure = model.get(at: indexPath.row)
-        cell.firstTypeCellLabel.text = dataStructure.getTitle()
+        cell.firstTypeCellLabel.text = dataStructure.title
         
         return cell
     }
